@@ -60,7 +60,7 @@
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="img/logo.png" alt=""> -->
-        <h1>Impact<span>.</span></h1>
+        <h1>Kita Iba<span>.</span></h1>
       </a>
       <nav id="navbar" class="navbar">
         <ul>
@@ -88,8 +88,20 @@
             </ul>
           </li> --}}
           <li><a href="#contact">Contact</a></li>
+          <li>
+            <div class="dropdown">
+                <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  User
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/register">Register</a></li>
+                  <li><a class="dropdown-item" href="/login">Login</a></li>
+                </ul>
+              </div>
+          </li>
         </ul>
-      </nav><!-- .navbar -->
+      </nav>
+      <!-- .navbar -->
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
@@ -103,7 +115,7 @@
     <div class="container position-relative">
       <div class="row gy-5" data-aos="fade-in">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
-          <h2>Welcome to <span>Impact</span></h2>
+          <h2>Selamat Datang <span>Dermawan</span></h2>
           <p>Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#about" class="btn-get-started">Get Started</a>
@@ -198,7 +210,7 @@
         <div class="container" data-aos="fade-up">
 
             <div class="section-header">
-                <h2>Progam</h2>
+                <h2>Progam Bantuan</h2>
                 <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem uia reprehenderit sunt deleniti</p>
             </div>
 
@@ -223,7 +235,7 @@
                                 <h4><a href="portfolio-details.html" title="More Details">App 1</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
                                 <div class="text-center mt-3">
-                                    <a class="btn btn-success" href="">Lihat Selengkapnya</a>
+                                    <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
                                 </div>
                             </div>
                         </div>
@@ -331,11 +343,11 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-books">
                         <div class="portfolio-wrap">
-                        <a href="img/portfolio/books-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/books-3.jpg" class="img-fluid" alt=""></a>
-                        <div class="portfolio-info">
-                            <h4><a href="portfolio-details.html" title="More Details">Books 3</a></h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>
-                        </div>
+                          <a href="img/portfolio/books-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/books-3.jpg" class="img-fluid" alt=""></a>
+                          <div class="portfolio-info">
+                              <h4><a href="portfolio-details.html" title="More Details">Books 3</a></h4>
+                              <p>Lorem ipsum, dolor sit amet consectetur</p>
+                          </div>
                         </div>
                     </div><!-- End Portfolio Item -->
 
@@ -1151,7 +1163,7 @@
   </footer><!-- End Footer -->
   <!-- End Footer -->
 
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center" style="background-color:#008374"><i class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
 
