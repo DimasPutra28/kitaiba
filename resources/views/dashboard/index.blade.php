@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Kita Iba</title>
+  <title>Bantu Mereka</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -42,7 +42,7 @@
   <section id="topbar" class="topbar d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">kitaiba@gmail.com</a></i>
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">bantumereka@gmail.com</a></i>
         <i class="bi bi-phone d-flex align-items-center ms-4"><span>+62 8331233157716</span></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
@@ -60,9 +60,9 @@
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="img/logo.png" alt=""> -->
-        <h1>Kita Iba<span>.</span></h1>
+        <h1>Bantu Mereka<span>.</span></h1>
       </a>
-      <nav id="navbar" class="navbar">
+      <nav id="navbar" class="navbar" style="padding-right: 75px">
         <ul>
           <li><a href="#hero">Beranda</a></li>
           <li><a href="#progam">Progam</a></li>
@@ -70,35 +70,27 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="blog.html">Blog</a></li>
-          {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li> --}}
           <li><a href="#contact">Contact</a></li>
-          <li>
-            <div class="dropdown">
-                <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  User
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/register">Register</a></li>
-                  <li><a class="dropdown-item" href="/login">Login</a></li>
+          @auth
+            <li class="dropdown" style="margin-right: -27px"><a href="#"><span>{{ auth()->user()->name }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                <li><a href="">Profil</a></li>
+                <li>
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button class="dropdown-item" style="color: #006A5D; margin-left: 20px">Keluar</button>
+                    </form>
+                </li>
                 </ul>
-              </div>
-          </li>
+            </li>
+          @else
+            <li class="dropdown" style="margin-right: -27px"><a href="#"><span>User</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                <li><a href="/register">Daftar</a></li>
+                <li><a href="/login">Masuk</a></li>
+                </ul>
+            </li>
+          @endauth
         </ul>
       </nav>
       <!-- .navbar -->
@@ -174,7 +166,7 @@
 
   <main id="main">
 
-    {{-- Carousel Kita Iba --}}
+    {{-- Carousel Bantu Mereka --}}
     <section id="carousel" class="carousel">
         <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">
@@ -203,18 +195,21 @@
             </button>
           </div>
     </section>
-    {{-- End Carousel Kita Iba --}}
+    {{-- End Carousel Bantu Mereka --}}
 
     <!-- ======= Portfolio Section ======= -->
     <section id="progam" class="portfolio sections-bg">
         <div class="container" data-aos="fade-up">
 
-            <div class="section-header">
+            <div class="section-header" style="margin-bottom: -30px">
                 <h2>Progam Bantuan</h2>
                 <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem uia reprehenderit sunt deleniti</p>
             </div>
+            <div class="text-center">
+                <a class="btn btn-light" style="background-color: #008374; color: white" href="">Buat Progam Baru</a>
+            </div>
 
-            <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
+            <div class="portfolio-isotope" style="margin-top: 15px" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
 
                 <div>
                     <ul class="portfolio-flters">

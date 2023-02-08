@@ -17,6 +17,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('username')->nullable();
+            $table->integer("roleid")->default(1);
+            $table->string('notelp')->nullable();
+            $table->string("gambar")->nullable();
+            $table->date("tgllahir")->nullable();
+            $table->string('googleid')->nullable();
+            $table->boolean('anonim')->default(0);
+            $table->boolean('gender')->nullable();
+            $table->integer('totalsaldo')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
