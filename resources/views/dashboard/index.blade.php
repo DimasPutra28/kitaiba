@@ -72,15 +72,15 @@
           <li><a href="blog.html">Blog</a></li>
           <li><a href="#contact">Contact</a></li>
           @auth
-            <li class="dropdown" style="margin-right: -27px"><a href="#"><span>{{ auth()->user()->name }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <li class="dropdown" style="margin-right: -27px"><a href="#"><span>{{ auth()->user()->username }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
-                <li><a href="">Profil</a></li>
-                <li>
-                    <form action="/logout" method="post">
-                        @csrf
-                        <button class="dropdown-item" style="color: #006A5D; margin-left: 20px">Keluar</button>
-                    </form>
-                </li>
+                    <li><a href="">Profil</a></li>
+                    <li>
+                        <form action="/logout" method="post">
+                            @csrf
+                            <button class="dropdown-item">Keluar</button>
+                        </form>
+                    </li>
                 </ul>
             </li>
           @else
@@ -242,6 +242,9 @@
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">Product 1</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            <div class="text-center mt-3">
+                                    <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
+                                </div>
                         </div>
                         </div>
                     </div><!-- End Portfolio Item -->
@@ -252,6 +255,9 @@
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">Branding 1</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            <div class="text-center mt-3">
+                                    <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
+                                </div>
                         </div>
                         </div>
                     </div><!-- End Portfolio Item -->
@@ -262,6 +268,9 @@
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">Books 1</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            <div class="text-center mt-3">
+                                    <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
+                                </div>
                         </div>
                         </div>
                     </div><!-- End Portfolio Item -->
@@ -272,6 +281,9 @@
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">App 2</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            <div class="text-center mt-3">
+                                    <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
+                                </div>
                         </div>
                         </div>
                     </div><!-- End Portfolio Item -->
@@ -282,6 +294,9 @@
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">Product 2</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            <div class="text-center mt-3">
+                                    <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
+                                </div>
                         </div>
                         </div>
                     </div><!-- End Portfolio Item -->
@@ -292,6 +307,9 @@
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">Branding 2</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            <div class="text-center mt-3">
+                                    <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
+                                </div>
                         </div>
                         </div>
                     </div><!-- End Portfolio Item -->
@@ -302,6 +320,9 @@
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">Books 2</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            <div class="text-center mt-3">
+                                    <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
+                                </div>
                         </div>
                         </div>
                     </div><!-- End Portfolio Item -->
@@ -312,6 +333,9 @@
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">App 3</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            <div class="text-center mt-3">
+                                    <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
+                                </div>
                         </div>
                         </div>
                     </div><!-- End Portfolio Item -->
@@ -322,6 +346,9 @@
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">Product 3</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            <div class="text-center mt-3">
+                                <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
+                            </div>
                         </div>
                         </div>
                     </div><!-- End Portfolio Item -->
@@ -332,6 +359,9 @@
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">Branding 3</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            <div class="text-center mt-3">
+                                    <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
+                                </div>
                         </div>
                         </div>
                     </div><!-- End Portfolio Item -->
@@ -342,6 +372,9 @@
                           <div class="portfolio-info">
                               <h4><a href="portfolio-details.html" title="More Details">Books 3</a></h4>
                               <p>Lorem ipsum, dolor sit amet consectetur</p>
+                              <div class="text-center mt-3">
+                                    <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
+                                </div>
                           </div>
                         </div>
                     </div><!-- End Portfolio Item -->

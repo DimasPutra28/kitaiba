@@ -365,6 +365,8 @@ section {
   }
 
   .navbar a,
+  .navbar button,
+  .navbar button:focus,
   .navbar a:focus {
     display: flex;
     align-items: center;
@@ -441,11 +443,20 @@ section {
     color: #006a5d;
   }
 
+  .navbar .dropdown ul button {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-transform: none;
+    font-weight: 600;
+    color: #006a5d;
+  }
+
   .navbar .dropdown ul a i {
     font-size: 12px;
   }
 
   .navbar .dropdown ul a:hover,
+  .navbar .dropdown ul button:hover,
   .navbar .dropdown ul .active:hover,
   .navbar .dropdown ul li:hover>a {
     color: var(--color-secondary);

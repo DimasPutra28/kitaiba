@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('username')->nullable();
-            $table->integer("roleid")->default(1);
+            $table->integer("roleid")->default(2);
             $table->string('notelp')->nullable();
             $table->string("gambar")->nullable();
             $table->date("tgllahir")->nullable();
@@ -27,7 +27,7 @@ return new class extends Migration
             $table->boolean('gender')->nullable();
             $table->integer('totalsaldo')->default(0);
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

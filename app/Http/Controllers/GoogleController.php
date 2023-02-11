@@ -24,18 +24,27 @@ class GoogleController extends Controller
                 Auth::login($finduser);
                 return redirect()->intended('/');
             }else{
-                // dd($user->id);
-                $newUser = User::create([
-                    'name' => $user->getName(),
-                    'username' => $user->getNickname(),
-                    'email' => $user->getEmail(),
-                    'googleid' => $user->getId(),
-                    'password' => bcrypt('soetomo1')
-                ]);
+                $exist = User::where('email', $user->getEmail())->first();
+                if ($exist) {
+                    $save = $user->getId();
+                    Auth::login($exist);
+                    $rules = [
+                        "googleid" => $save
+                    ];
+                    User::where('id', auth()->user()->id)->update($rules);
+                    return redirect('/');
+                }else {
+                    $newUser = User::create([
+                        'name' => $user->getName(),
+                        'username' => $user->getNickname(),
+                        'email' => $user->getEmail(),
+                        'googleid' => $user->getId(),
+                        'email_verified_at' => date("Y-m-d H:i:s")
 
-                
-                Auth::login($newUser);
-                return redirect()->intended('/');
+                    ]);
+                    Auth::login($newUser);
+                    return redirect('/validasi')->with('success', 'Masukkan username dan password untuk validasi pendaftaran akun');
+                }
             }
         } catch (\Throwable $th) {
             //throw $th;

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Daftar Akun|Bantu Mereka</title>
+  <title>Validasi Akun|Bantu Mereka</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -31,6 +31,19 @@
 
 <body>
     <section class="p-6">
+        @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+        @endif
+
+        @if (session()->has('loginError'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('loginError') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+        @endif
         <div class="wrapper">
             <div class="logo">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWl40uLVDguqfeV10t64Mi3erMP8IwCVkoGCIEvQV0gPzeJtHj&s" alt="">
@@ -38,55 +51,30 @@
             <div class="text-center mt-4 name">
                 BantuMereka
             </div>
-            <form action="/register" method="post" class="p-3 mt-3">
-            @csrf
-                <div class="form-field d-flex align-items-center">
-                    <span class="far fa-user"></span>
-                    <input type="name" id="name" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nama" required value="{{ old('name') }}" />
-                    @error('name')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
 
+            <form action="/validasi" method="post" class="p-3 mt-3">
+                @csrf
                 <div class="form-field d-flex align-items-center">
                     <span class="far fa-user"></span>
-                    <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" required value="{{ old('email') }}" />
-                    @error('email')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
-                <div class="form-field d-flex align-items-center">
-                    <span class="far fa-user"></span>
-                    <input type="text" id="username" class="form-control @error('username') is-invalid @enderror" name="username" placeholder="Username" required value="{{ old('username') }}">
+                    <input type="username" id="username" class="form-control @error('username') is-invalid @enderror" placeholder="Username" name="username" required value="{{ old('username') }}" />
                     @error('username')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
+                        <div class="invalid-feedback"></div>
+                        {{ $message }}
                     @enderror
                 </div>
 
                 <div class="form-field d-flex align-items-center">
                     <span class="fas fa-key"></span>
-                    <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" required/>
-                    @error('password')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
+                    <input type="password" id="password" class="form-control" placeholder="Password" name="password" required />
                 </div>
 
-                <button class="btn mt-3" style="background-color: #008374">Daftar</button>
+                <button class="btn mt-3" style="background-color: #008374">Masuk</button>
             </form>
             <div class="erga">
-                <a href="auth/google" class="btn mt-3" style="background-color: #C54B41">Daftar dengan Google</a>
+                <a href="auth/google" class="btn mt-3" style="background-color: #C54B41">Masuk dengan Google</a>
             </div>
             <div class="text-center fs-6">
-                <small href="#" style="color: black">Sudah punya akun?</small><a href="/login">Masuk</a>
+                <a href="#">Lupa password?</a> or <a href="/register">Daftar Akun</a>
             </div>
         </div>
     </section>

@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +20,14 @@ use App\Http\Controllers\GoogleController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/register', function () {
-    return view('signup.index');
-});
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/login', function () {
-    return view('login.index');
-});
+Route::get('/validasi', [AuthController::class, 'indexvalidasi']);
+Route::post('/validasi', [AuthController::class, 'validasi']);
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');

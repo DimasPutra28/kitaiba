@@ -66,6 +66,13 @@ body {
     box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
 }
 
+.wrapper .erga {
+    padding-left: 16px;
+    margin-top: -20px;
+    border-radius: 20px;
+    width: 94.5%;
+}
+
 .wrapper .form-field .fas {
     color: #555;
 }
