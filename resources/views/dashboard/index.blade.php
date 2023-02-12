@@ -28,6 +28,7 @@
   <!-- Template Main CSS File -->
   <link href="css/main.css" rel="stylesheet">
 
+
   <!-- =======================================================
   * Template Name: Impact - v1.2.0
   * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
@@ -42,8 +43,8 @@
   <section id="topbar" class="topbar d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">bantumereka@gmail.com</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+62 8331233157716</span></i>
+        <i class="bi bi-envelope-at d-flex align-items-center"><a href="#contact">bantumereka@gmail.com</a></i>
+        <i class="bi bi-whatsapp d-flex align-items-center ms-4"><span>+62 8331233157716</span></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -74,11 +75,12 @@
           @auth
             <li class="dropdown" style="margin-right: -27px"><a href="#"><span>{{ auth()->user()->username }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
-                    <li><a href="">Profil</a></li>
+                    <li><a href="" class="bi bi-person-fill" style="padding-right: 120px"> Profil</a></li>
+                    <li><a href="" class="bi bi-key-fill" style="padding-right: 45px">Ganti Password</a></li>
                     <li>
                         <form action="/logout" method="post">
                             @csrf
-                            <button class="dropdown-item">Keluar</button>
+                            <button class="dropdown-item bi bi-box-arrow-right" style="padding-right: 112px">Keluar</button>
                         </form>
                     </li>
                 </ul>
@@ -86,8 +88,8 @@
           @else
             <li class="dropdown" style="margin-right: -27px"><a href="#"><span>User</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
-                <li><a href="/register">Daftar</a></li>
-                <li><a href="/login">Masuk</a></li>
+                <li><a class="bi bi-person-plus-fill" style="padding-right: 113px" href="/register">Daftar</a></li>
+                <li><a class="bi bi-box-arrow-left" style="padding-right: 110px" href="/login">Masuk</a></li>
                 </ul>
             </li>
           @endauth
@@ -124,34 +126,26 @@
       <div class="container position-relative">
         <div class="row gy-4 mt-5">
 
-          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-easel"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Lorem Ipsum</a></h4>
+              <div class="icon"><i class="bi bi-newspaper"></i></div>
+              <h4 class="title"><a href="" class="stretched-link">Blogspot</a></h4>
             </div>
           </div>
           <!--End Icon Box -->
 
-          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-gem"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Sed ut perspiciatis</a></h4>
+              <h4 class="title"><a href="" class="stretched-link">Progam Bantuan</a></h4>
             </div>
           </div>
           <!--End Icon Box -->
 
-          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-geo-alt"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Magni Dolores</a></h4>
-            </div>
-          </div>
-          <!--End Icon Box -->
-
-          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon-box">
-              <div class="icon"><i class="bi bi-command"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Nemo Enim</a></h4>
+              <div class="icon"><i class="bi bi-person-workspace"></i></div>
+              <h4 class="title"><a href="" class="stretched-link">Riwayat Progam</a></h4>
             </div>
           </div>
           <!--End Icon Box -->
@@ -1127,7 +1121,7 @@
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-info">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span>Impact</span>
+            <span>Bantu Mereka</span>
           </a>
           <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
           <div class="social-links d-flex mt-4">
@@ -1177,14 +1171,14 @@
 
     <div class="container mt-4">
       <div class="copyright">
-        &copy; Copyright <strong><span>Impact</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>BantuMereka</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/impact-bootstrap-business-website-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by arek"
       </div>
     </div>
 

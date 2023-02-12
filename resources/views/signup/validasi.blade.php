@@ -68,7 +68,7 @@
                     <input type="password" id="password" class="form-control" placeholder="Password" name="password" required />
                 </div>
 
-                <button class="btn mt-3" style="background-color: #008374">Masuk</button>
+                <button class="btn mt-3" style="background-color: #008374">Validasi Akun</button>
             </form>
             <div class="erga">
                 <a href="auth/google" class="btn mt-3" style="background-color: #C54B41">Masuk dengan Google</a>

@@ -20,16 +20,16 @@ use App\Http\Controllers\RegisterController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/register', [RegisterController::class, 'index']);
-Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
-Route::get('/validasi', [AuthController::class, 'indexvalidasi']);
-Route::post('/validasi', [AuthController::class, 'validasi']);
+Route::get('/validasi', [AuthController::class, 'indexvalidasi'])->middleware('auth');
+Route::post('/validasi', [AuthController::class, 'validasi'])->middleware('auth');
 
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
 
-Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
-Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login')->middleware('guest');
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback')->middleware('guest');
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
