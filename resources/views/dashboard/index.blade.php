@@ -44,7 +44,7 @@
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope-at d-flex align-items-center"><a href="#contact">bantumereka@gmail.com</a></i>
-        <i class="bi bi-whatsapp d-flex align-items-center ms-4"><span>+62 8331233157716</span></i>
+        <i class="bi bi-whatsapp d-flex align-items-center ms-4"><a>+62 8331233157716</a></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -110,7 +110,7 @@
       <div class="row gy-5" data-aos="fade-in">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
           <h2>Selamat Datang <span>Dermawan</span></h2>
-          <p>Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
+          <p>Mari Saling Mengasihi dengan Saling Berbagi</p>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#about" class="btn-get-started">Get Started</a>
             <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
@@ -843,7 +843,7 @@
     </section><!-- End Pricing Section -->
 
     <!-- ======= Frequently Asked Questions Section ======= -->
-    <section id="faq" class="faq">
+    {{-- <section id="faq" class="faq">
       <div class="container" data-aos="fade-up">
 
         <div class="row gy-4">
@@ -937,7 +937,8 @@
         </div>
 
       </div>
-    </section><!-- End Frequently Asked Questions Section -->
+    </section> --}}
+    <!-- End Frequently Asked Questions Section -->
 
     <!-- ======= Recent Blog Posts Section ======= -->
     <section id="recent-posts" class="recent-posts sections-bg">
@@ -1051,7 +1052,7 @@
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h4>Location:</h4>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <p>Jl. Airlangga No.4 - 6, Airlangga, Kec. Gubeng, Kota SBY, Jawa Timur 60115</p>
                 </div>
               </div><!-- End Info Item -->
 

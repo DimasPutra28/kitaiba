@@ -71,6 +71,13 @@ body {
     margin-top: -20px;
     border-radius: 20px;
     width: 94.5%;
+    font-size: 1.2rem;
+    display: block;
+    border: none;
+    outline: none;
+    color: #666;
+    background: none;
+    text-decoration: none;
 }
 
 .wrapper .form-field .fas {

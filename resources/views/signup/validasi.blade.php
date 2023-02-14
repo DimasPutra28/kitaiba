@@ -70,12 +70,6 @@
 
                 <button class="btn mt-3" style="background-color: #008374">Validasi Akun</button>
             </form>
-            <div class="erga">
-                <a href="auth/google" class="btn mt-3" style="background-color: #C54B41">Masuk dengan Google</a>
-            </div>
-            <div class="text-center fs-6">
-                <a href="#">Lupa password?</a> or <a href="/register">Daftar Akun</a>
-            </div>
         </div>
     </section>
 
