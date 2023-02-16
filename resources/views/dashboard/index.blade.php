@@ -44,7 +44,7 @@
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope-at d-flex align-items-center"><a href="#contact">bantumereka@gmail.com</a></i>
-        <i class="bi bi-whatsapp d-flex align-items-center ms-4"><a>+62 8331233157716</a></i>
+        <i class="bi bi-whatsapp d-flex align-items-center ms-4"><a href="">+62 8331233157716</a></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -70,7 +70,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#team">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#recent-posts">Blog</a></li>
           <li><a href="#contact">Contact</a></li>
           @auth
             <li class="dropdown" style="margin-right: -27px"><a href="#"><span>{{ auth()->user()->username }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
@@ -772,7 +772,7 @@
     </section><!-- End Our Team Section -->
 
     <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing sections-bg">
+    {{-- <section id="pricing" class="pricing sections-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
@@ -840,7 +840,8 @@
         </div>
 
       </div>
-    </section><!-- End Pricing Section -->
+    </section> --}}
+    <!-- End Pricing Section -->
 
     <!-- ======= Frequently Asked Questions Section ======= -->
     {{-- <section id="faq" class="faq">
@@ -1060,7 +1061,7 @@
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h4>Email:</h4>
-                  <p>info@example.com</p>
+                  <p>unairbantumereka@gmail.com</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -1068,7 +1069,7 @@
                 <i class="bi bi-phone flex-shrink-0"></i>
                 <div>
                   <h4>Call:</h4>
-                  <p>+1 5589 55488 55</p>
+                  <p>+62 8331233157716</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -1158,11 +1159,11 @@
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
           <p>
-            A108 Adam Street <br>
-            New York, NY 535022<br>
-            United States <br><br>
-            <strong>Phone:</strong> +1 5589 55488 55<br>
-            <strong>Email:</strong> info@example.com<br>
+            A108 KaliKepiting <br>
+            Surabaya, SBY 60237<br>
+            indonesia <br><br>
+            <strong>Phone:</strong> +62 8331 2331 57716<br>
+            <strong>Email:</strong> unairbantumereka@gmail.com<br>
           </p>
 
         </div>
