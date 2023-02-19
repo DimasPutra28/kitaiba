@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,8 @@ Route::post('/login', [LoginController::class, 'authenticate'])->middleware('gue
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login')->middleware('guest');
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback')->middleware('guest');
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
+
+Route::get('/lupapassword', [ResetPasswordController::class, 'indexforgotpass'])->middleware('guest');
+Route::get('/resetpassword', [ResetPasswordController::class, 'indexresetpass'])->middleware('guest');
+
 

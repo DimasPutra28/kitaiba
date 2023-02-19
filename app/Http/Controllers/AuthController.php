@@ -26,7 +26,7 @@ class AuthController extends Controller
         // dd("erga cantik");
         $rules = [
             "username" => 'required|min:5|max:255|unique:users',
-            "password" => 'required|min:5|max:25'
+            "password" => 'required|min:5|max:25|confirmed'
         ];
 
         $validatedData = $request->validate($rules);

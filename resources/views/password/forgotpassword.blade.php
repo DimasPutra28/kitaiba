@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Masuk|Bantu Mereka</title>
+  <title>Lupa password|Bantu Mereka</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -32,18 +32,12 @@
 <body>
     <section class="p-6">
         @if (session()->has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" data-mdb-delay="3000" aria-label="Close"></button>
+            </div>
         @endif
 
-        @if (session()->has('loginError'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('loginError') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-        @endif
         <div class="wrapper">
             <div class="logo">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWl40uLVDguqfeV10t64Mi3erMP8IwCVkoGCIEvQV0gPzeJtHj&s" alt="">
@@ -51,29 +45,24 @@
             <div class="text-center mt-4 name">
                 BantuMereka
             </div>
-            <form action="/login" method="post" class="p-3">
+
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Sistem akan mengirim kode OTP melalui email untuk melakukan reset password pada akun anda
+            </div>
+            <form action="" method="post" class="p-3 mt-3">
                 @csrf
-                <div class="form-field d-flex align-items-center">
+                <div class="form-field d-flex align-items-center" style="margin-bottom: 20px">
                     <span class="far fa-user"></span>
-                    <input type="username" id="username" class="form-control @error('username') is-invalid @enderror" placeholder="Username" name="username" value="{{ old('username') }}" required/>
+                    <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Alamat email" name="email" required value="{{ old('email') }}" />
                 </div>
-                @error('username')
+                @error('email')
                     <div class="invalid-feedback"></div>
-                    {{ $message }}
+                    <small class="text-danger" style="font-size: 11px">{{ $message }}</small>
                 @enderror
 
-                <div class="form-field d-flex align-items-center" style="margin-top: 20px">
-                    <span class="fas fa-key"></span>
-                    <input type="password" id="password" class="form-control" placeholder="Password" name="password" required />
-                </div>
-                <button class="btn mt-3" style="background-color: #008374">Masuk</button>
+                <button class="btn mt-3" type="submit" style="background-color: #008374">Kirim Kode OTP</button>
             </form>
-            <div class="erga">
-                <a href="auth/google" class="btn mt-3" style="background-color: #C54B41">Masuk dengan Google</a>
-            </div>
-            <div class="text-center fs-6">
-                <a href="/lupapassword" class="text-danger">Lupa password?</a> atau <a href="/register">Daftar Akun</a>
-            </div>
+            <small><a href="/login">Kembali ke halaman login</a></small>
         </div>
     </section>
 
