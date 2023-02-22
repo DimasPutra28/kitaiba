@@ -225,6 +225,7 @@
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
                                 <div class="text-center mt-3">
                                     <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
+                                    <a class="btn btn-primary" href="">wkdnwkdhw</a>
                                 </div>
                             </div>
                         </div>

@@ -6,7 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,6 @@ use App\Http\Controllers\ResetPasswordController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
@@ -35,6 +35,11 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
 Route::get('/lupapassword', [ResetPasswordController::class, 'indexforgotpass'])->middleware('guest');
-Route::get('/resetpassword', [ResetPasswordController::class, 'indexresetpass'])->middleware('guest');
+Route::post('/lupapassword', [ResetPasswordController::class, 'forgotpass'])->middleware('guest');
 
+Route::get('/resetpassword/{token}', [ResetPasswordController::class, 'indexresetpass'])->name('reset.password.get')->middleware('guest');
+Route::post('/resetpassword', [ResetPasswordController::class, 'resetpass'])->middleware('guest');
 
+Route::get('/cek', function(){
+    return view('cek');
+});

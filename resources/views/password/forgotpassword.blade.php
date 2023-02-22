@@ -38,6 +38,12 @@
             </div>
         @endif
 
+        @if (Session::has('message'))
+                <div class="alert alert-success" role="alert">
+                {{ Session::get('message') }}
+            </div>
+        @endif
+
         <div class="wrapper">
             <div class="logo">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWl40uLVDguqfeV10t64Mi3erMP8IwCVkoGCIEvQV0gPzeJtHj&s" alt="">
@@ -47,20 +53,21 @@
             </div>
 
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                Sistem akan mengirim kode OTP melalui email untuk melakukan reset password pada akun anda
+                Silahkan masukkan email akun anda untuk melakukan reset password
             </div>
-            <form action="" method="post" class="p-3 mt-3">
+            <form action="/lupapassword" method="post" class="p-3 mt-3">
                 @csrf
                 <div class="form-field d-flex align-items-center" style="margin-bottom: 20px">
                     <span class="far fa-user"></span>
                     <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Alamat email" name="email" required value="{{ old('email') }}" />
                 </div>
                 @error('email')
-                    <div class="invalid-feedback"></div>
-                    <small class="text-danger" style="font-size: 11px">{{ $message }}</small>
+                    <div class="invalid-feedback">
+                        <small class="text-danger" style="font-size: 11px">{{ $message }}</small>
+                    </div>
                 @enderror
 
-                <button class="btn mt-3" type="submit" style="background-color: #008374">Kirim Kode OTP</button>
+                <button class="btn mt-3" type="submit" style="background-color: #008374">Kirim link ke Email</button>
             </form>
             <small><a href="/login">Kembali ke halaman login</a></small>
         </div>

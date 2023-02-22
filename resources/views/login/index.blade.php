@@ -32,18 +32,25 @@
 <body>
     <section class="p-6">
         @if (session()->has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         @endif
 
         @if (session()->has('loginError'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('loginError') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('loginError') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         @endif
+
+        @if (Session::has('message'))
+                <div class="alert alert-success" role="alert">
+                {{ Session::get('message') }}
+            </div>
+        @endif
+        
         <div class="wrapper">
             <div class="logo">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWl40uLVDguqfeV10t64Mi3erMP8IwCVkoGCIEvQV0gPzeJtHj&s" alt="">
