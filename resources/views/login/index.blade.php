@@ -50,7 +50,7 @@
                 {{ Session::get('message') }}
             </div>
         @endif
-        
+
         <div class="wrapper">
             <div class="logo">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWl40uLVDguqfeV10t64Mi3erMP8IwCVkoGCIEvQV0gPzeJtHj&s" alt="">
@@ -62,7 +62,7 @@
                 @csrf
                 <div class="form-field d-flex align-items-center">
                     <span class="far fa-user"></span>
-                    <input type="username" id="username" class="form-control @error('username') is-invalid @enderror" placeholder="Username" name="username" value="{{ old('username') }}" required/>
+                    <input type="text" id="username" class="form-control @error('username') is-invalid @enderror" name="username" placeholder="Username" required value="{{ old('username') }}">
                 </div>
                 @error('username')
                     <div class="invalid-feedback"></div>

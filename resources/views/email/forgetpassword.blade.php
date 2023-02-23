@@ -9,26 +9,25 @@
         body{
             background-color: #b2bbba
         }
-
-        .erga a{
-            color: black;
-        }
     </style>
 </head>
 <body>
     <h1 style="text-align: center">Lupa Password Bantu Mereka</h1><br>
     <div class="container">
-
-        <p>Hai, dermawan</p>
+        <strong>Hai {{ $user->name }},</strong>
         <br>
-        Klik tombol dibawah ini untuk melakukan reset password:
+        <div style="font-family:courier;">Klik link dibawah ini untuk melakukan reset password:</div>
+        <br>
         <div class="erga">
-            <a class="btn btn-danger" href="{{ route('reset.password.get', $token) }}">Reset Password</a>
+            <a class="btn btn-danger" style="font-style: italic" href="{{ route('reset.password.get', $token) }}">http://127.0.0.1:8000/resetpassword/{{ $token }}</a>
         </div>
         <br>
-        <p>Terima kasih atas partisipasi anda dalam website ini</p>
+        <p style="font-family:courier;">Terima kasih atas partisipasi anda dalam website ini</p>
         <footer>
-            <small style="font-style: italic">Website Bantu Mereka, 2023</small>
+            {{-- <span style="font-style: italic">Website Bantu Mereka, 2023</span> --}}
+            <span class="text-gray-800 fw-semibold me-1">2023&copy;</span>
+            <span class="text-gray-800">Gebang Software House,</span>
+            <a href="/" target="_blank" class="text-gray-800 text-hover-primary" style="text-decoration: none; color:black"><b>Website Bantu Mereka</b></a>
         </footer>
     </div>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 
 
@@ -39,6 +40,8 @@ Route::post('/lupapassword', [ResetPasswordController::class, 'forgotpass'])->mi
 
 Route::get('/resetpassword/{token}', [ResetPasswordController::class, 'indexresetpass'])->name('reset.password.get')->middleware('guest');
 Route::post('/resetpassword', [ResetPasswordController::class, 'resetpass'])->middleware('guest');
+
+Route::get('/ubahpassword', [ChangePasswordController::class, 'index'])->middleware('auth');
 
 Route::get('/cek', function(){
     return view('cek');
