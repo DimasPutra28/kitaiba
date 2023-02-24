@@ -45,11 +45,20 @@
             </div>
         @endif
 
+        @if (session()->has('verifikasi'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('verifikasi') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         @if (Session::has('message'))
                 <div class="alert alert-success" role="alert">
                 {{ Session::get('message') }}
             </div>
         @endif
+
+        
 
         <div class="wrapper">
             <div class="logo">

@@ -58,7 +58,7 @@
   <header id="header" class="header d-flex align-items-center">
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <a href="i/" class="logo d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="img/logo.png" alt=""> -->
         <h1>Bantu Mereka<span>.</span></h1>
@@ -75,6 +75,11 @@
           @auth
             <li class="dropdown" style="margin-right: -27px"><a href="#"><span>{{ auth()->user()->username }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
+                    @can('admin')
+                        <li><a href="/dashboard" class="bi bi-easel2-fill" style="padding-right: 60px"> Administrator</a></li>
+                        <hr>
+                    @endcan
+                    
                     <li><a href="" class="bi bi-person-fill" style="padding-right: 120px"> Profil</a></li>
                     <li><a href="/ubahpassword" class="bi bi-key-fill" style="padding-right: 45px">Ubah Password</a></li>
                     <li>

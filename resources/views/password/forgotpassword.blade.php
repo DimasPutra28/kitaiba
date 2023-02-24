@@ -59,7 +59,7 @@
                 @csrf
                 <div class="form-field d-flex align-items-center" style="margin-bottom: 20px">
                     <span class="far fa-user"></span>
-                    <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Alamat email" name="email" required value="{{ old('email') }}" />
+                    <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Alamat email" name="email" required/>
                 </div>
                 @error('email')
                     <div class="invalid-feedback">

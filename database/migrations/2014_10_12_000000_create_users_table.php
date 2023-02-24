@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string("gambar")->nullable();
             $table->date("tgllahir")->nullable();
             $table->string('googleid')->nullable();
-            $table->boolean('anonim')->default(0);
+            $table->integer('otp')->nullable();
             $table->boolean('gender')->nullable();
             $table->integer('totalsaldo')->default(0);
             $table->timestamp('email_verified_at')->nullable();

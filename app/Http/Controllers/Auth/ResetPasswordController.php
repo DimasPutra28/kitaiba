@@ -24,8 +24,7 @@ class ResetPasswordController extends Controller
         ]);
 
         $token = Str::random(210);
-        $email= PasswordReset::where('email', $request->email)->first();
-
+        $email= PasswordReset::where('email', $request->email)->get();
         if ($email) {
             DB::table('password_resets')->where(['email'=> $request->email])->delete();
             DB::table('password_resets')->insert([

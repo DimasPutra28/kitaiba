@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -17,12 +18,21 @@ class LoginController extends Controller
             "username" => 'required',
             "password" => 'required'
         ]);
-
-        if(Auth::attempt($credentials)){
-            $request->session()->regenerate();
-            return redirect()->intended('/');
-
+        $user = User::where('username', $request->username)->first();
+        // dd($user);
+        if($user->email_verified_at == NULL){
+            return back()->with('verifikasi', 'Akun belum terverifikasi, Silahkan cek email anda');
+        }else{
+            if(Auth::attempt($credentials)){
+                $request->session()->regenerate();
+                if(auth()->user()->roleid ==1){
+                    return redirect()->intended('/dashboard');
+                }else{
+                    return redirect()->intended('/');
+                }
+            }
         }
+        
 
         return back()->with('loginError', 'Silahkan coba lagi untuk masuk ke sistem');
     }

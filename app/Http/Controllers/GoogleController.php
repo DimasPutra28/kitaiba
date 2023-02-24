@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class GoogleController extends Controller
 {
     public function redirectToGoogle(){
         return Socialite::driver('google')->redirect();
     }
-
+    
     public function handleGoogleCallback(){
         try {
             $user = Socialite::driver('google')->user();
@@ -22,7 +23,11 @@ class GoogleController extends Controller
             if($finduser){
                 // dd($user->id);
                 Auth::login($finduser);
-                return redirect()->intended('/');
+                if(auth()->user()->roleid ==1){
+                    return redirect()->intended('/dashboard');
+                }else{
+                    return redirect()->intended('/');
+                }
             }else{
                 $exist = User::where('email', $user->getEmail())->first();
                 if ($exist) {
@@ -32,14 +37,18 @@ class GoogleController extends Controller
                         "googleid" => $save
                     ];
                     User::where('id', auth()->user()->id)->update($rules);
-                    return redirect('/');
+                    if(auth()->user()->roleid ==1){
+                        return redirect()->intended('/dashboard');
+                    }else{
+                        return redirect()->intended('/');
+                    }
                 }else {
                     $newUser = User::create([
                         'name' => $user->getName(),
                         'username' => $user->getNickname(),
                         'email' => $user->getEmail(),
                         'googleid' => $user->getId(),
-                        'email_verified_at' => date("Y-m-d H:i:s")
+                        'email_verified_at' => Carbon::now()
 
                     ]);
                     Auth::login($newUser);

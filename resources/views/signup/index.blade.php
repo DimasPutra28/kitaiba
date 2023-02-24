@@ -40,6 +40,7 @@
             </div>
             <form action="/register" method="post" class="p-3">
             @csrf
+                <input type="hidden" name="otp" value="{{ @rand(100000, 999999) }}">
                 <div class="form-field d-flex align-items-center" style="margin-top: 20px" >
                     <span class="far fa-user"></span>
                     <input type="name" id="name" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nama" required value="{{ old('name') }}" />

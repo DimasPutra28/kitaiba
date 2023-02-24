@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Reset Password|Bantu Mereka</title>
+  <title>Ubah Password|Bantu Mereka</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -25,6 +25,9 @@
   <link href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
+  {{-- CSS Bootstrap --}}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
   <!-- Template Main CSS File -->
   <link href="{{ asset('css/signup.css') }}" rel="stylesheet">
   <style>
@@ -36,22 +39,16 @@
 
 <body>
 
-    <header id="header" class="header d-flex align-items-center">
+    <header id="header" class="header d-flex align-items-center mt-3">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="/" class="logo d-flex d-flex align-items-center text-decoration-none">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="img/logo.png" alt=""> -->
-                <h3 style="color: white">Bantu Mereka<span>.</span></h3>
+                <h3 style="color: white; margin-left: -330px">Bantu Mereka<span>.</span></h3>
             </a>
           <nav id="navbar" class="navbar" style="padding-right: 75px">
             <ul>
-              <li><a href="#hero">Beranda</a></li>
-              <li><a href="#progam">Progam</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#team">Team</a></li>
-              <li><a href="#recent-posts">Blog</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="/">Beranda</a></li>
               @auth
                 <li class="dropdown" style="margin-right: -27px"><a href="#"><span>{{ auth()->user()->username }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
@@ -84,17 +81,12 @@
     </header>
     <section class="p-6">
         @if (session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="erga" style="padding-left: 440px">
+            <div class="alert alert-success alert-dismissible fade show col-lg-6" role="alert">
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        @endif
-
-        @if (session()->has('loginError'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{ session('loginError') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+        </div>
         @endif
         <div class="wrapper">
             <div class="logo">
@@ -103,15 +95,15 @@
             <div class="text-center mt-4 name">
                 BantuMereka
             </div>
-            <form action="" method="post" class="p-3">
+            <form action="/ubahpassword" method="post" class="p-3">
                 @csrf
                 <div class="form-field d-flex align-items-center">
-                    <span class="far fa-user"></span>
-                    <input type="password" id="current_password" class="form-control @error('current_password') is-invalid @enderror" placeholder="Password saat ini" name="current_password" value="{{ old('current_password') }}" required/>
+                    <span class="far fa-key"></span>
+                    <input type="password" id="password" class="form-control @error('current_password') is-invalid @enderror" placeholder="Password saat ini" name="current_password" required/>
                 </div>
                 @error('current_password')
                     <div class="invalid-feedback"></div>
-                    {{ $message }}
+                    <small class="text-danger">{{ $message }}</small>
                 @enderror
 
                 <div class="form-field d-flex align-items-center" style="margin-top: 20px">
@@ -120,14 +112,14 @@
                 </div>
                 @error('password')
                     <div class="invalid-feedback"></div>
-                    {{ $message }}
+                    <small class="text-danger">{{ $message }}</small>
                 @enderror
 
                 <div class="form-field d-flex align-items-center" style="margin-top: 20px">
                     <span class="fas fa-key"></span>
                     <input type="password" id="password_confirmation" class="form-control" placeholder="Konfirmasi password" name="password_confirmation" required />
                 </div>
-                <button class="btn mt-3" style="background-color: #008374">Reset Password</button>
+                <button class="btn mt-3" style="background-color: #008374">Ubah Password</button>
             </form>
         </div>
     </section>
@@ -143,6 +135,9 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
+
+  {{-- JS Bootstrap --}}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
 </body>
 
