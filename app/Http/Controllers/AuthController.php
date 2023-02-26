@@ -19,7 +19,9 @@ class AuthController extends Controller
     }
 
     public function indexvalidasi(){
-        return view('signup.validasi');
+        return view('signup.validasi', [
+            "title" => "Validasi Akun"
+        ]);
     }
 
     public function validasi(Request $request){

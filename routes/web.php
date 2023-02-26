@@ -48,3 +48,6 @@ Route::get('/ubahpassword', [ChangePasswordController::class, 'index'])->middlew
 Route::post('/ubahpassword', [ChangePasswordController::class, 'store'])->middleware('auth');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('admin');
+Route::get('/cek', function(){
+    return view('cek');
+});

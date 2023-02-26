@@ -11,7 +11,9 @@ class ChangePasswordController extends Controller
 {
     public function index()
     {
-        return view('password.changepassword');
+        return view('password.changepassword', [
+            "title" => "Ubah Password"
+        ]);
     }
 
     public function store(Request $request)

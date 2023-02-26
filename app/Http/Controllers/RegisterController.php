@@ -13,12 +13,16 @@ class RegisterController extends Controller
 {
     public function index()
     {
-        return view('signup.index');
+        return view('signup.index', [
+            "title" => "Daftar Akun"
+        ]);
     }
 
     public function verifikasi()
     {
-        return view('signup.verifikasi');
+        return view('signup.verifikasi', [
+            "title" => "Verifikasi Email"
+        ]);
     }
 
     public function store(Request $request)

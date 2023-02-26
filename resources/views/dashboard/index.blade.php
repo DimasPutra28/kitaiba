@@ -1,113 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Bantu Mereka</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="vendor/aos/aos.css" rel="stylesheet">
-  <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="css/main.css" rel="stylesheet">
-
-
-  <!-- =======================================================
-  * Template Name: Impact - v1.2.0
-  * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <section id="topbar" class="topbar d-flex align-items-center">
-    <div class="container d-flex justify-content-center justify-content-md-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope-at d-flex align-items-center"><a href="#contact">bantumereka@gmail.com</a></i>
-        <i class="bi bi-whatsapp d-flex align-items-center ms-4"><a href="">+62 8331233157716</a></i>
-      </div>
-      <div class="social-links d-none d-md-flex align-items-center">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
-      </div>
-    </div>
-  </section><!-- End Top Bar -->
-
-  <header id="header" class="header d-flex align-items-center">
-
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <a href="/" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="img/logo.png" alt=""> -->
-        <h1>Bantu Mereka<span>.</span></h1>
-      </a>
-      <nav id="navbar" class="navbar" style="padding-right: 75px">
-        <ul>
-          <li><a href="#hero">Beranda</a></li>
-          <li><a href="#progam">Progam</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#recent-posts">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
-          @auth
-            <li class="dropdown" style="margin-right: -27px"><a href="#"><span>{{ auth()->user()->username }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                    @can('admin')
-                        <li><a href="/dashboard" class="bi bi-easel2-fill" style="padding-right: 60px"> Administrator</a></li>
-                        <hr>
-                    @endcan
-                    
-                    <li><a href="" class="bi bi-person-fill" style="padding-right: 120px"> Profil</a></li>
-                    <li><a href="/ubahpassword" class="bi bi-key-fill" style="padding-right: 45px">Ubah Password</a></li>
-                    <li>
-                        <form action="/logout" method="post">
-                            @csrf
-                            <button class="dropdown-item bi bi-box-arrow-right" style="padding-right: 112px">Keluar</button>
-                        </form>
-                    </li>
-                </ul>
-            </li>
-          @else
-            <li class="dropdown" style="margin-right: -27px"><a href="#"><span>User</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                <li><a class="bi bi-person-plus-fill" style="padding-right: 113px" href="/register">Daftar</a></li>
-                <li><a class="bi bi-box-arrow-left" style="padding-right: 110px" href="/login">Masuk</a></li>
-                </ul>
-            </li>
-          @endauth
-        </ul>
-      </nav>
-      <!-- .navbar -->
-
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
-    </div>
-  </header><!-- End Header -->
-  <!-- End Header -->
+@extends('layouts.dashboard')
+@section('erga')
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero">
@@ -224,13 +116,12 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-app">
                         <div class="portfolio-wrap">
-                            <a href="img/portfolio/app-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/app-1.jpg" class="img-fluid" alt=""></a>
+                            <a href="img/breadcrumbs-bg.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/app-1.jpg" style="height: 267px; width: 356px" class="img-fluid" alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">App 1</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
                                 <div class="text-center mt-3">
                                     <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
-                                    <a class="btn btn-primary" href="">wkdnwkdhw</a>
                                 </div>
                             </div>
                         </div>
@@ -238,7 +129,7 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-product">
                         <div class="portfolio-wrap">
-                        <a href="img/portfolio/product-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/product-1.jpg" class="img-fluid" alt=""></a>
+                        <a href="img/portfolio/product-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/product-1.jpg" style="height: 267px; width: 356px" class="img-fluid" alt=""></a>
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">Product 1</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -251,7 +142,7 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
                         <div class="portfolio-wrap">
-                        <a href="img/portfolio/branding-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/branding-1.jpg" class="img-fluid" alt=""></a>
+                        <a href="img/portfolio/branding-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/branding-1.jpg" style="height: 267px; width: 356px" class="img-fluid" alt=""></a>
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">Branding 1</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -264,7 +155,7 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-books">
                         <div class="portfolio-wrap">
-                        <a href="img/portfolio/books-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/books-1.jpg" class="img-fluid" alt=""></a>
+                        <a href="img/portfolio/books-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/books-1.jpg" style="height: 267px; width: 356px" class="img-fluid" alt=""></a>
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">Books 1</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -1122,93 +1013,4 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-info">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span>Bantu Mereka</span>
-          </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-          <div class="social-links d-flex mt-4">
-            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-          <h4>Contact Us</h4>
-          <p>
-            A108 KaliKepiting <br>
-            Surabaya, SBY 60237<br>
-            indonesia <br><br>
-            <strong>Phone:</strong> +62 8331 2331 57716<br>
-            <strong>Email:</strong> unairbantumereka@gmail.com<br>
-          </p>
-
-        </div>
-
-      </div>
-    </div>
-
-    <div class="container mt-4">
-      <div class="copyright">
-        &copy; Copyright <strong><span>BantuMereka</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/impact-bootstrap-business-website-template/ -->
-        Designed by arek"
-      </div>
-    </div>
-
-  </footer><!-- End Footer -->
-  <!-- End Footer -->
-
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center" style="background-color:#008374"><i class="bi bi-arrow-up-short"></i></a>
-
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="vendor/aos/aos.js"></script>
-  <script src="vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="js/main.js"></script>
-
-</body>
-
-</html>
+  @endsection

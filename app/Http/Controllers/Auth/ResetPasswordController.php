@@ -15,7 +15,9 @@ use Illuminate\Support\Str;
 class ResetPasswordController extends Controller
 {
     public function indexforgotpass(){
-        return view('password.forgotpassword');
+        return view('password.forgotpassword', [
+            "title" => "Lupa Password"
+        ]);
     }
 
     public function forgotpass(Request $request){
@@ -50,7 +52,10 @@ class ResetPasswordController extends Controller
     }
 
     public function indexresetpass($token){
-        return view('password.resetpassword', ['token' => $token]);
+        return view('password.resetpassword', [
+            'token' => $token,
+            "title" => "Reset Password"
+        ]);
     }
 
     public function resetpass(Request $request)
