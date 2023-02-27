@@ -28,7 +28,7 @@
             </div>
         @endif
 
-        
+
 
         <div class="wrapper">
             <div class="logo">

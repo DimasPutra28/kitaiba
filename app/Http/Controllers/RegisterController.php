@@ -55,10 +55,12 @@ class RegisterController extends Controller
             $rules = [
                 "otp" => 'required'
             ];
-    
+
             $validatedData = $request->validate($rules);
             $validatedData['email_verified_at'] = date("Y-m-d H:i:s");
             User::where('id', $user->id)->update($validatedData);
+            $erga['otp'] = null;;
+            User::where('id', $user->id)->update($erga);
             return redirect('/login')->with('success', 'Akun anda telah terverifikasi, Silahkan masuk');
         }else{
             return back()->with('error', 'Kode otp salah!');

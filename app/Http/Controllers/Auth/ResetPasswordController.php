@@ -43,7 +43,7 @@ class ResetPasswordController extends Controller
         }
         $user = User::where('email', $request->email)->first();
 
-        Mail::send('email.forgetPassword', ['token' => $token, 'user' => $user], function($message) use($request){
+        Mail::send('email.forgetPassword', ['user' => $user], function($message) use($request){
             $message->to($request->email);
             $message->subject('Setel Ulang Kata Sandi');
         });
