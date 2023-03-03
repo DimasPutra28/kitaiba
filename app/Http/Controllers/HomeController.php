@@ -11,4 +11,9 @@ class HomeController extends Controller
             "title" => "Bantu Mereka"
         ]);
     }
+
+    public function moneyFormat($amount)
+    {
+        return '$' . number_format($amount, 2);
+    }
 }

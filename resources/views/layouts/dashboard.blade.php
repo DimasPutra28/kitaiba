@@ -28,23 +28,17 @@
   <!-- Template Main CSS File -->
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
-
-  <!-- =======================================================
-  * Template Name: Impact - v1.2.0
-  * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
-
   <!-- ======= Header ======= -->
   <section id="topbar" class="topbar d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope-at d-flex align-items-center"><a href="#contact">bantumereka@gmail.com</a></i>
-        <i class="bi bi-whatsapp d-flex align-items-center ms-4"><a href="">+62 8331233157716</a></i>
+        <i class="bi bi-envelope-at d-flex align-items-center"><a href="/#contact" style="text-decoration: none">bantumereka@gmail.com</a></i>
+        {{-- <i class="bi bi-whatsapp d-flex align-items-center ms-4"><a href="" style="text-decoration: none">+62 8331233157716</a></i> --}}
+        <i class="bi bi-whatsapp d-flex align-items-center ms-4"><a href="" style="text-decoration: none">+62 8331233157716</a></i>
+        <i class="bi bi-bank d-flex align-items-center ms-4"><a href="">{{ auth()->user()->created_at->format('d / m / Y') }}</a></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -53,7 +47,8 @@
         <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
       </div>
     </div>
-  </section><!-- End Top Bar -->
+  </section>
+  <!-- End Top Bar -->
 
   <header id="header" class="header d-flex align-items-center">
 
@@ -199,6 +194,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
+
 
 </body>
 

@@ -2,7 +2,7 @@
 @section('erga')
     {{-- Title --}}
     <div class="title mb-4">
-        <h1 class="text-center" style="font-family:courier new; font-style: initial;">Sayang Erga</h1>
+        {{-- <h1 class="text-center" style="font-family:courier new; font-style: initial;">Sayang Erga</h1> --}}
     </div>
     {{-- End Tittle --}}
 
