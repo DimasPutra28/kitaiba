@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kategori_progams', function (Blueprint $table) {
+        Schema::create('donasis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('slug')->unique();
+            $table->foreignId("id_user");
+            $table->foreignId("id_program");
+            $table->boolean("anonim")->default(false);
+            $table->integer("dana");
             $table->timestamps();
         });
     }
@@ -28,6 +30,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kategori_progams');
+        Schema::dropIfExists('donasis');
     }
 };
+?>

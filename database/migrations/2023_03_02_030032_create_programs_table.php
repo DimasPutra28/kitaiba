@@ -17,10 +17,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId("id_kategori");
             $table->string('nama');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('deskripsi');
-            $table->string('gambar');
-            $table->string('nama');
+            $table->string('gambar')->nullable();
+            $table->integer('targetdana');
+            $table->integer('danaskrg')->default(0);
+            $table->integer('status')->default(1);
             $table->date('deadline');
             $table->timestamps();
         });
