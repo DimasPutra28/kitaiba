@@ -116,7 +116,7 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-app">
                         <div class="portfolio-wrap">
-                            <a href="img/breadcrumbs-bg.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/app-1.jpg" style="height: 267px; width: 356px" class="img-fluid" alt=""></a>
+                            <a href="img/breadcrumbs-bg.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/app-1.jpg" style="height: 311px;" class="img-fluid" alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">App 1</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -129,7 +129,7 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-product">
                         <div class="portfolio-wrap">
-                        <a href="img/portfolio/product-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/product-1.jpg" style="height: 267px; width: 356px" class="img-fluid" alt=""></a>
+                        <a href="img/portfolio/product-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/product-1.jpg" style="height: 311px;" class="img-fluid" alt=""></a>
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">Product 1</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -142,7 +142,7 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
                         <div class="portfolio-wrap">
-                        <a href="img/portfolio/branding-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/branding-1.jpg" style="height: 267px; width: 356px" class="img-fluid" alt=""></a>
+                        <a href="img/portfolio/branding-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/branding-1.jpg" style="height: 311px;" class="img-fluid" alt=""></a>
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">Branding 1</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -155,7 +155,7 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-books">
                         <div class="portfolio-wrap">
-                        <a href="img/portfolio/books-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/books-1.jpg" style="height: 267px; width: 356px" class="img-fluid" alt=""></a>
+                        <a href="img/portfolio/books-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/books-1.jpg" style="height: 311px;" class="img-fluid" alt=""></a>
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">Books 1</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -168,13 +168,14 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-app">
                         <div class="portfolio-wrap">
-                        <a href="img/portfolio/app-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/app-2.jpg" class="img-fluid" alt=""></a>
+                        <a href="img/portfolio/app-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/app-2.jpg" style="height: 311px;" class="img-fluid" alt=""></a>
                         <div class="portfolio-info">
                             <h4><a href="portfolio-details.html" title="More Details">App 2</a></h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
                             <div class="text-center mt-3">
-                                    <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
-                                </div>
+                                <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
+                                <input type="file" class="form-control" style="background: transparent">
+                            </div>
                         </div>
                         </div>
                     </div><!-- End Portfolio Item -->

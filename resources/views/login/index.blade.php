@@ -2,33 +2,42 @@
 @section('erga')
     <section class="p-6">
         @if (session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="row justify-content-center">
+                <div class="alert alert-success alert-dismissible text-center col-lg-4 fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             </div>
         @endif
 
         @if (session()->has('loginError'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{ session('loginError') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="row justify-content-center">
+                <div class="alert alert-danger alert-dismissible text-center col-lg-4 fade show" role="alert">
+                    {{ session('loginError') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             </div>
         @endif
 
         @if (session()->has('verifikasi'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{ session('verifikasi') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="row justify-content-center">
+                <div class="alert alert-danger alert-dismissible text-center col-lg-4 fade show" role="alert">
+                    {{ session('verifikasi') }}&nbsp;<a href="/verifikasi">Verifikasi disini!</a>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             </div>
         @endif
 
         @if (Session::has('message'))
-                <div class="alert alert-success" role="alert">
-                {{ Session::get('message') }}
+            <div class="row justify-content-center">
+                <div class="alert alert-danger alert-dismissible text-center col-lg-4 fade show" role="alert">
+                    {{ Session::get('message') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             </div>
         @endif
 
-        
+
 
         <div class="wrapper">
             <div class="logo">

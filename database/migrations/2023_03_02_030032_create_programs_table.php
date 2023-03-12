@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
             $table->foreignId("id_kategori");
+            $table->foreignId("id_user");
             $table->string('nama');
             $table->string('slug')->unique();
             $table->string('deskripsi');

@@ -7714,6 +7714,11 @@ progress {
   outline-offset: -2px;
   -webkit-appearance: none; }
 
+
+[type="file"]::-webkit-outer-spin-button {
+    background-color: #0050e3;
+}
+
 [type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
@@ -17090,8 +17095,10 @@ select.tt-hint {
   visibility: hidden;
   position: absolute; }
 
-.form-group .file-upload-info {
-  background: transparent; }
+.form-group .file-upload-info[type="file"] {
+  background: transparent;
+ }
+
 
 .form-check {
   min-height: 18px;

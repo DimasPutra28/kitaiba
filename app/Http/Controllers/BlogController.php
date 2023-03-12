@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Program;
-use App\Http\Requests\StoreProgramRequest;
-use App\Http\Requests\UpdateProgramRequest;
+use App\Models\Blog;
+use App\Http\Requests\StoreBlogRequest;
+use App\Http\Requests\UpdateBlogRequest;
 
-class ProgramController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class ProgramController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreProgramRequest  $request
+     * @param  \App\Http\Requests\StoreBlogRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProgramRequest $request)
+    public function store(StoreBlogRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class ProgramController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Program $program)
+    public function show(Blog $blog)
     {
         //
     }
@@ -53,10 +53,10 @@ class ProgramController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function edit(Program $program)
+    public function edit(Blog $blog)
     {
         //
     }
@@ -64,11 +64,11 @@ class ProgramController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateProgramRequest  $request
-     * @param  \App\Models\Program  $program
+     * @param  \App\Http\Requests\UpdateBlogRequest  $request
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProgramRequest $request, Program $program)
+    public function update(UpdateBlogRequest $request, Blog $blog)
     {
         //
     }
@@ -76,10 +76,10 @@ class ProgramController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Program $program)
+    public function destroy(Blog $blog)
     {
         //
     }

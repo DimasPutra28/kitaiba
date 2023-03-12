@@ -24,7 +24,6 @@
             <form action="/resetpassword" method="post" class="p-3">
                 @csrf
                 <input type="hidden" name="token" value="{{ $token }}">
-
                 <div class="form-field d-flex align-items-center">
                     <span class="far fa-user"></span>
                     <input type="text" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}" required/>

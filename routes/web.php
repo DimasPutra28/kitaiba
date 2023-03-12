@@ -6,9 +6,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\ProgramController;
 use App\Http\Controllers\ChangePasswordController;
+
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Admin\KategoriProgramController;
 
 
 /*
@@ -51,3 +54,20 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('adm
 Route::get('/cek', function(){
     return view('cek');
 });
+
+//////////////////////////////ADMIN///////////////////////////////////////
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('admin');
+
+Route::get('/dash-kategoriprogram', [KategoriProgramController::class, 'index'])->middleware('admin');
+Route::get('/dash-buatkategori', [KategoriProgramController::class, 'indexcreate'])->middleware('admin');
+Route::post('/dash-buatkategori', [KategoriProgramController::class, 'store'])->middleware('admin');
+Route::get('/dash-updatekategori/{slug}', [KategoriProgramController::class, 'indexupdate'])->name('updatekategori')->middleware('admin');
+Route::post('/dash-updatekategori', [KategoriProgramController::class, 'update'])->middleware('admin');
+Route::get('/dash-hapuskategori', [KategoriProgramController::class, 'destroy'])->middleware('admin');
+
+Route::get('/createslugkategori', [KategoriProgramController::class, 'checkSlug'])->middleware('admin');
+
+Route::get('/dash-program', [ProgramController::class, 'index'])->middleware('admin');
+Route::get('/dash-buatprogram', [ProgramController::class, 'indexcreate'])->middleware('admin');
+
+

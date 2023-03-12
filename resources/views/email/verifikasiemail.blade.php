@@ -12,7 +12,7 @@
     </style>
 </head>
 <body>
-    <h1 style="text-align: center">Verifikasi Akun Bantu Mereka</h1><br>
+    <h1 style="text-align: center">Verifikasi Email Bantu Mereka</h1><br>
     <div class="container">
         <strong>Hai {{ $user->name }},</strong>
         <br>

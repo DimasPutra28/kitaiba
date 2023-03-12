@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\PasswordReset;
 use Mail;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class ResetPasswordController extends Controller
@@ -59,30 +59,30 @@ class ResetPasswordController extends Controller
     }
 
     public function resetpass(Request $request)
-      {
-          $request->validate([
-              'email' => 'required|email|exists:users',
-              'password' => 'required|string|min:6|confirmed',
-              'password_confirmation' => 'required'
-          ]);
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users',
+            'password' => 'required|string|min:6|confirmed',
+            'password_confirmation' => 'required'
+        ]);
 
-          $updatePassword = DB::table('password_resets')
-                              ->where([
-                                'email' => $request->email,
-                                'token' => $request->token
-                              ])
-                              ->first();
+        $updatePassword = DB::table('password_resets')
+                            ->where([
+                            'email' => $request->email,
+                            'token' => $request->token
+                            ])
+                            ->first();
 
-          if(!$updatePassword){
-              return back()->withInput()->with('error', 'Invalid token!');
-          }
+        if(!$updatePassword){
+            return back()->withInput()->with('error', 'Invalid token!');
+        }
 
-          $user = User::where('email', $request->email)
-                      ->update(['password' => Hash::make($request->password)]);
+        $user = User::where('email', $request->email)
+                    ->update(['password' => Hash::make($request->password)]);
 
-          DB::table('password_resets')->where(['email'=> $request->email])->delete();
+        DB::table('password_resets')->where(['email'=> $request->email])->delete();
 
-          return redirect('/login')->with('message', 'Password anda sudah terganti');
-      }
+        return redirect('/login')->with('message', 'Password anda sudah terganti');
+    }
 
 }

@@ -22,9 +22,9 @@ class ChangePasswordController extends Controller
             'current_password' => ['required', new MatchOldPassword],
             'password' => 'required|confirmed',
         ]);
-   
+
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->password)]);
-   
+
         return back()->with('success', "Password anda berhasil diperbarui, Silahkan kembali ke halaman utama");
     }
 }

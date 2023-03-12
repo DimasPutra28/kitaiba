@@ -3,10 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Program;
+use App\Models\KategoriProgram;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -20,13 +22,13 @@ class User extends Authenticatable
 
     protected $guarded =['id'];
 
-    // protected $fillable = [
-    //     'name',
-    //     'email',
-    //     'password',
-    //     'username',
-    //     'googleid'
-    // ];
+    public function program(){
+        return $this->hasMany(Program::class, 'id_user');
+    }
+
+    public function kategori(){
+        return $this->hasMany(KategoriProgram::class, 'id_user');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

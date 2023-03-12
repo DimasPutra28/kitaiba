@@ -30,6 +30,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('css/signup.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/main.css') }}" rel="stylesheet">
   <style>
     body{
         background: #008374;
@@ -38,7 +39,23 @@
 </head>
 
 <body>
-
+    <section id="topbar" class="topbar d-flex align-items-center">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+          <div class="contact-info d-flex align-items-center">
+            <i class="bi bi-envelope-at d-flex align-items-center"><a href="/#contact" style="text-decoration: none">bantumereka@gmail.com</a></i>
+            {{-- <i class="bi bi-whatsapp d-flex align-items-center ms-4"><a href="" style="text-decoration: none">+62 8331233157716</a></i> --}}
+            <i class="bi bi-whatsapp d-flex align-items-center ms-4"><a href="" style="text-decoration: none">+62 8331233157716</a></i>
+            {{-- <i class="bi bi-bank d-flex align-items-center ms-4"><a href="">{{ auth()->user()->created_at->format('d / m / Y') }}</a></i> --}}
+          </div>
+          <div class="social-links d-none d-md-flex align-items-center">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+          </div>
+        </div>
+      </section>
+      <!-- End Top Bar -->
     <header id="header" class="header d-flex align-items-center mt-3">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
             <a href="/" class="logo d-flex d-flex align-items-center text-decoration-none">
@@ -108,7 +125,7 @@
 
                 <div class="form-field d-flex align-items-center" style="margin-top: 20px">
                     <span class="fas fa-key"></span>
-                    <input type="password" id="password" class="form-control" placeholder="Password baru" name="password" required />
+                    <input type="password" id="password" class="form-control @error('current_password') is-invalid @enderror" placeholder="Password baru" name="password" required />
                 </div>
                 @error('password')
                     <div class="invalid-feedback"></div>

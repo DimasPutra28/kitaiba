@@ -1,11 +1,20 @@
 @extends('layouts.auth')
 @section('erga')
-    <section class="p-6">
+    <section class="p-6 mt-4">
         @if (session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
+        @endif
+
+        @if (session()->has('error'))
+        <div class="row justify-content-center">
+            <div class="alert alert-danger alert-dismissible text-center col-lg-3 fade show" role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
         @endif
 
         @if (session()->has('loginError'))
@@ -37,9 +46,8 @@
             <div class="text-center mt-4 name">
                 BantuMereka
             </div>
-            <form action="" method="post" class="p-3">
+            <form action="/verifikasi" method="post" class="p-3">
                 @csrf
-                <input type="hidden" name="user" value="">
                 <div class="form-field d-flex align-items-center" style="margin-bottom: 130px">
                     <span class="far fa-user"></span>
                     <input type="number" id="otp" class="form-control @error('otp') is-invalid @enderror" name="otp" placeholder="Kode OTP" required autofocus>
