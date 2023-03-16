@@ -64,6 +64,8 @@ Route::post('/dash-buatkategori', [KategoriProgramController::class, 'store'])->
 Route::get('/dash-updatekategori/{slug}', [KategoriProgramController::class, 'indexupdate'])->name('updatekategori')->middleware('admin');
 Route::post('/dash-updatekategori', [KategoriProgramController::class, 'update'])->middleware('admin');
 Route::get('/dash-hapuskategori', [KategoriProgramController::class, 'destroy'])->middleware('admin');
+Route::get('/dash-daftarprogram/{slug}', [KategoriProgramController::class, 'listprogram'])->name('programkategori')->middleware('admin');
+
 
 Route::get('/createslugkategori', [KategoriProgramController::class, 'checkSlug'])->middleware('admin');
 

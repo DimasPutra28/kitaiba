@@ -40,8 +40,8 @@
       <!-- partial:../../partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="/dashboard"><img src="assets/images/logos.svg" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="/dashboard"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo" href="/dashboard"><img src="{{ asset('assets/images/logos.svg') }}" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="/dashboard"><img src="{{ asset('../../assets/images/logo-mini.svg') }}" alt="logo" /></a>
         </div>
         <ul class="nav">
           <li class="nav-item profile">
@@ -360,6 +360,8 @@
     <script src="{{ asset('/assets/js/settings.js') }}"></script>
     <script src="{{ asset('/assets/js/todolist.js') }}"></script>
     <script src="{{ asset('https://cdn.amcharts.com/lib/5/themes/Animated.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
 
     <!-- endinject -->
     <!-- Custom js for this page -->

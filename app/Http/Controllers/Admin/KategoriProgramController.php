@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Program;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\KategoriProgam;
+use App\Http\Controllers\Controller;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 
@@ -66,6 +67,15 @@ class KategoriProgramController extends Controller
         $swap = KategoriProgam::where('id', $id)->first();
         KategoriProgam::destroy($id);
         return redirect()->back()->with('success', "Kategori ($swap->nama) berhasil dihapus");
+    }
+
+    public function listprogram($slug){
+        $kategori = KategoriProgam::where('slug', $slug)->get();
+        return view('admin.kategori.listprogamkategori', [
+            "title" => "Daftar Program Kategori | ".$kategori[0]->nama,
+            "kategori" => KategoriProgam::where('slug', $slug)->get(),
+            "program" => Program::where('id_kategori', $kategori[0]->id)->get()
+        ]);
     }
 
     public function checkSlug(Request $request)
