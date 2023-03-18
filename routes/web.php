@@ -71,5 +71,7 @@ Route::get('/createslugkategori', [KategoriProgramController::class, 'checkSlug'
 
 Route::get('/dash-program', [ProgramController::class, 'index'])->middleware('admin');
 Route::get('/dash-buatprogram', [ProgramController::class, 'indexcreate'])->middleware('admin');
+Route::post('/dash-buatprogram', [ProgramController::class, 'store'])->middleware('admin');
+
 
 

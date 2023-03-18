@@ -13,7 +13,7 @@ class KategoriProgramController extends Controller
 {
     public function index(){
         return view('admin.kategori.index', [
-            "title" => "Dashboard-Program",
+            "title" => "Dashboard-Kategori Program",
             "kategori" => KategoriProgam::all()
         ]);
     }
@@ -72,7 +72,7 @@ class KategoriProgramController extends Controller
     public function listprogram($slug){
         $kategori = KategoriProgam::where('slug', $slug)->get();
         return view('admin.kategori.listprogamkategori', [
-            "title" => "Daftar Program Kategori | ".$kategori[0]->nama,
+            "title" => "Daftar Program Kategori: ".$kategori[0]->nama,
             "kategori" => KategoriProgam::where('slug', $slug)->get(),
             "program" => Program::where('id_kategori', $kategori[0]->id)->get()
         ]);

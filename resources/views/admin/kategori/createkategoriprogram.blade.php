@@ -11,6 +11,11 @@
             </div>
         </div>
     @endif
+    @if ($errors)
+        @foreach ($errors as $error )
+            <p>{{ $error }}</p>
+        @endforeach
+    @endif
     <div class="row justify-content-center">
         <div class="col-6 grid-margin stretch-card">
             <div class="card">
