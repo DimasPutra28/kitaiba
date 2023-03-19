@@ -6,8 +6,8 @@
     <div class="row ">
         <div class="col-12 grid-margin">
             @if (session()->has('success'))
-                <div class="row justify-content-end">
-                    <div class="alert alert-success col-lg-3" role="alert">
+                <div class="row justify-content-end" style="padding-right: 18px">
+                    <div class="alert alert-success col-lg-4" role="alert">
                         {{ session('success') }}
                     </div>
                 </div>
@@ -67,41 +67,40 @@
                                                 @if (auth()->user()->id === $kat->user->id)
                                                     <div class="row justify-content-center">
                                                         <a href="/dash-updatekategori/{{ $kat->slug }}" class="btn btn-light" style="margin-right: 5px; border-radius: 5px; background-color: rgb(26, 100, 63); color: white; padding: 12px 27px 12px 27px">Update</a>
-                                                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-right: 5px; border-radius: 5px; background-color: rgb(125, 26, 19); color: white; padding: 12px 27px 12px 27px">Hapus</button>
+                                                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#{{ $kat->id }}" style="margin-right: 5px; border-radius: 5px; background-color: rgb(125, 26, 19); color: white; padding: 12px 27px 12px 27px">Hapus</button>
 
                                                         {{-- Modal button hapus --}}
-                                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal fade" id="{{ $kat->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                             <div class="modal-dialog modal-dialog-centered">
-                                                            <div class="modal-content" style="background-color: white">
-                                                                <div class="modal-header">
-                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                <div class="modal-content" style="background-color: #2A3038; color:white; border-radius: 1rem; width: 1150px;">
+                                                                    <div class="modal-header">
+                                                                    <h1 class="modal-title fs-1" id="exampleModalLabel">Kategori: {{ $kat->nama }}</h1>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Apakah anda yakin untuk menghapus kategori progam ini?
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal" style="margin-right: 5px; border-radius: 5px; background-color: rgb(13, 105, 30); color: white; padding: 12px 27px 12px 27px">Tidak</button>
+                                                                        <form action="/dash-hapuskategori" >
+                                                                            @csrf
+                                                                            <input type="hidden" name="id" value="{{ $kat->id }}">
+                                                                            <button type="submit" class="btn btn-light" style="margin-right: 5px; border-radius: 5px; background-color: rgb(125, 26, 19); color: white; padding: 12px 27px 12px 27px">Iya</button>
+                                                                        </form>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="modal-body">
-                                                                dnjwdjhwdwkdn
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                                                </div>
-                                                            </div>
                                                             </div>
                                                         </div>
                                                         {{-- End Modal button hapus --}}
-                                                        {{-- <form action="/dash-hapuskategori" >
-                                                            @csrf
-                                                            <input type="hidden" name="id" value="{{ $kat->id }}">
-                                                            <button type="submit" class="btn btn-light" style="margin-right: 5px; border-radius: 5px; background-color: rgb(125, 26, 19); color: white; padding: 12px 27px 12px 27px">Hapus</button>
-                                                        </form> --}}
+
                                                     </div>
                                                 @else
                                                     <div class="row justify-content-center">
-                                                        <a href="/dash-updatekategori/{{ $kat->slug }}" class="btn btn-light" style="margin-right: 5px; border-radius: 5px; background-color: rgb(26, 100, 63); color: white; padding: 12px 27px 12px 27px; pointer-events: none" disabled>Update</a>
+                                                        <a href="/dash-updatekategori/{{ $kat->slug }}" class="btn btn-light" style="margin-right: 5px; border-radius: 5px; background-color: rgb(26, 100, 63); color: white; padding: 12px 27px 12px 27px; pointer-events: none" title="Anda tidak punya hak akses untuk kategori ini">Update</a>
                                                         <form action="">
                                                             @csrf
                                                             <input type="hidden" name="id" value="{{ $kategori[0]->id }}">
                                                             {{-- <button type="submit" class="nav-link active btn btn-danger" onclick="return confirm('Apakah anda yakin untuk menghapus Post?')">Delete</button> --}}
-                                                            <button type="submit" class="btn btn-light" style="margin-right: 5px; border-radius: 5px; background-color: rgb(125, 26, 19); color: white; padding: 12px 27px 12px 27px; pointer-events: none">Hapus</button>
+                                                            <button type="submit" class="btn btn-light" style="margin-right: 5px; border-radius: 5px; background-color: rgb(125, 26, 19); color: white; padding: 12px 27px 12px 27px; pointer-events: none" title="Anda tidak punya hak akses untuk kategori ini">Hapus</button>
                                                         </form>
                                                     </div>
                                                 @endif

@@ -1,0 +1,9 @@
+Catatan Progamming
+
+1. Status Progam bantuan{
+    status 1 = pending;
+    status 2 = aktif;
+    status 3 = non-aktif;
+    status 1 = batal;
+    status 1 = selesai;
+}

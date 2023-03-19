@@ -32,7 +32,7 @@ class KategoriProgramController extends Controller
         $validatedData['id_user'] = auth()->user()->id;
         KategoriProgam::create($validatedData);
         $new = KategoriProgam::where('slug', $request->slug)->first();
-        return back()->with('success', "Kategori program ($new->nama) berhasil ditambahkan");
+        return back()->with('success', "Kategori program: $new->nama berhasil ditambahkan");
     }
 
     public function indexupdate($slug){
@@ -59,14 +59,14 @@ class KategoriProgramController extends Controller
         $validatedData['id_user'] = auth()->user()->id;
         KategoriProgam::where('id', $id)->update($validatedData);
         $new = KategoriProgam::where('id', $id)->get();
-        return redirect()->route('updatekategori', ['slug' => $new[0]->slug])->with('success', 'Kategori berhasil diupdate');
+        return redirect()->route('updatekategori', ['slug' => $new[0]->slug])->with('success', "Kategori program berhasil diupdate");
     }
 
     public function destroy(){
         $id=request('id');
         $swap = KategoriProgam::where('id', $id)->first();
         KategoriProgam::destroy($id);
-        return redirect()->back()->with('success', "Kategori ($swap->nama) berhasil dihapus");
+        return redirect()->back()->with('success', "Kategori program: $swap->nama berhasil dihapus");
     }
 
     public function listprogram($slug){

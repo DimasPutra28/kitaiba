@@ -85,7 +85,7 @@
                                 <h6 class="text-muted font-weight-normal">2.27% Since last month</h6>
                             </div>
                             <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                <i class="icon-lg mdi mdi-timer-sand text-secondary ml-auto"></i>
+                                <i class="icon-lg mdi mdi-timer-sand text-light ml-auto"></i>
                             </div>
                         </div>
                     </div>

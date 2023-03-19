@@ -26,7 +26,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="nama">Nama kategori program</label>
-                            <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama kategori program" required value="{{ old('nama') }}">
+                            <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama kategori program" required value="{{ old('nama') }}" autofocus>
                             @error('nama')
                                 <div class="invalid-feedback">
                                     {{ $message }}

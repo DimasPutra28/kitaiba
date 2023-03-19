@@ -16,10 +16,10 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row justify-content-center">
-                        <div class="col-lg-6" style="padding-left: 40px">
+                        <div class="col-lg-6" style="padding-left: 30px">
                             <h4 class="card-title">Data program bantuan</h4>
                         </div>
-                        <div class="col-lg-6 d-flex justify-content-end" style="padding-right: 63px">
+                        <div class="col-lg-6 d-flex justify-content-end" style="padding-right: 30px">
                             <a class="btn btn-primary" style="margin-right: 5px; border-radius: 5px; background-color: rgb(11, 136, 156); padding: 12px 27px 12px 27px" href="/dash-buatprogram"><span style="font-size: 20px; color:rgb(245, 230, 17)">+</span> Buat Program Baru</a>
                         </div>
                     </div>
@@ -61,9 +61,21 @@
                                         </td>
                                         <td> {{ $prog->slug }} </td>
                                         <td> {{ $prog->user->name }} </td>
-                                        <td> {{ $prog->danaskrg }} </td>
-                                        <td> {{ $prog->targetdana }} </td>
-                                        <td> {{ $prog->status }} </td>
+                                        <td> Rp {{ number_format($prog->danaskrg, 2) }} </td>
+                                        <td> Rp {{ number_format($prog->targetdana, 2) }} </td>
+                                        <td>
+                                            @if ($prog->status == 1)
+                                                <div class="badge badge-outline-warning" style="padding-left: 15px; padding-right: 15px">Pending</div>
+                                            @elseif ($prog->status == 2)
+                                                <div class="badge badge-outline-info" style="padding-left: 24px; padding-right: 24px">Aktif</div>
+                                            @elseif ($prog->status == 3)
+                                                <div class="badge badge-outline-light">Non Aktif</div>
+                                            @elseif ($prog->status == 4)
+                                                <div class="badge badge-outline-danger" style="padding-left: 23px; padding-right: 23px">Batal</div>
+                                            @else
+                                                <div class="badge badge-outline-success" style="padding-left: 18px; padding-right: 18px">Selesai</div>
+                                            @endif
+                                        </td>
                                         <td> {{ $prog->created_at->format('d/m/Y') }} </td>
                                     </tr>
                                     @endforeach

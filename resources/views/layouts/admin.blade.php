@@ -360,8 +360,10 @@
     <script src="{{ asset('/assets/js/settings.js') }}"></script>
     <script src="{{ asset('/assets/js/todolist.js') }}"></script>
     <script src="{{ asset('https://cdn.amcharts.com/lib/5/themes/Animated.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
+    <script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js') }}" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ asset('https://code.jquery.com/jquery-2.1.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7-beta.23/jquery.inputmask.min.js') }}"></script>
 
     <!-- endinject -->
     <!-- Custom js for this page -->

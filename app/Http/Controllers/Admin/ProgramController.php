@@ -33,19 +33,26 @@ class ProgramController extends Controller
             "id_kategori" => 'required',
             "deskripsi" => 'max:5000',
             "gambar" => 'image|file|max:10240',
-            "targetdana" => 'required',
             "deadline" => 'required'
         ]);
+        // dd($request->targetdana);
+        $validatedData['targetdana'] = str_replace('.', '', $request->targetdana);
+        // dd($validatedData['targetdana']);
+        // $this->merge([
+        //     'targetdana' => str_replace('Rp, .', '', $request->tagetdana),
+        // ]);
+
         if($request->file('gambar')){
             $validatedData['gambar'] = $request->file('gambar')->store('program');
         }
         $kategori = KategoriProgam::where('id', $request->id_kategori)->get();
-        $validatedData['slug'] = $kategori[0]->nama."|".Str::random(30);
+        $validatedData['slug'] = $kategori[0]->slug."-".Str::random(30);
         $validatedData['status'] = 2;
         $validatedData['id_user'] = auth()->user()->id;
+        // dd($validatedData);
         Program::create($validatedData);
         $program = Program::where('slug', $validatedData['slug'])->first();
-        return back()->with('success', "Program bantuan '$program->nama' berhasil ditambahkan");
+        return back()->with('success', "Program bantuan: $program->nama berhasil ditambahkan");
     }
 
 
