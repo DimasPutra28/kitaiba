@@ -35,12 +35,10 @@ class ProgramController extends Controller
             "gambar" => 'image|file|max:10240',
             "deadline" => 'required'
         ]);
-        // dd($request->targetdana);
-        $validatedData['targetdana'] = str_replace('.', '', $request->targetdana);
-        // dd($validatedData['targetdana']);
-        // $this->merge([
-        //     'targetdana' => str_replace('Rp, .', '', $request->tagetdana),
-        // ]);
+        $rupiah1 = str_replace('.', '', $request->targetdana);
+        $rupiah2 = str_replace('Rp', '', $rupiah1);
+        $rupiah3 = str_replace(',00', '', $rupiah2);
+        $validatedData['targetdana'] = $rupiah3;
 
         if($request->file('gambar')){
             $validatedData['gambar'] = $request->file('gambar')->store('program');

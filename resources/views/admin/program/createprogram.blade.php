@@ -55,7 +55,7 @@
                         <div class="form-group">
                             <label for="currency-field">Enter Amount</label>
                             <input type="text" class="form-control @error('targetdana') is-invalid @enderror"name="targetdana" id="txtExampleBoxOne" onkeypress="return number(event )"
-                            onkeyup="formatCurrency(this, '');" data-inputmask="'alias': 'numeric', 'autoGroup' :true, 'digitsOptional':false, 'removeMaskOnSubmit' : true, 'autoUnmask' : true"
+                            onBlur="formatCurrency(this, 'Rp ', 'blur');" onkeyup="formatCurrency(this, 'Rp ');" data-inputmask="'alias': 'numeric', 'autoGroup' :true, 'digitsOptional':false, 'removeMaskOnSubmit' : true, 'autoUnmask' : true"
                             placeholder="Rp 1.000.000,00" required value="{{ old('targetdana') }}">
                             @error('targetdana')
                                 <div class="invalid-feedback">
