@@ -21,21 +21,21 @@ class LoginController extends Controller
             "password" => 'required'
         ]);
         $user = User::where('username', $request->username)->first();
-        // dd($user);
-        if($user->email_verified_at == NULL){
-            return back()->with('verifikasi', 'Akun belum terverifikasi, Silahkan cek email anda');
-        }else{
-            if(Auth::attempt($credentials)){
-                $request->session()->regenerate();
-                if(auth()->user()->roleid ==1){
-                    return redirect()->intended('/dashboard');
-                }else{
-                    return redirect()->intended('/');
+        if($user){
+            if($user->email_verified_at){
+                if(Auth::attempt($credentials)){
+                    $request->session()->regenerate();
+                    if(auth()->user()->roleid ==1){
+                        return redirect()->intended('/dashboard');
+                    }else{
+                        return redirect()->intended('/');
+                    }
                 }
+            }else{
+                return back()->with('verifikasi', 'Akun belum terverifikasi, Silahkan cek email anda');
             }
+        }else{
+            return back()->with('loginError', 'Silahkan coba lagi untuk masuk ke sistem');
         }
-        
-
-        return back()->with('loginError', 'Silahkan coba lagi untuk masuk ke sistem');
     }
 }
