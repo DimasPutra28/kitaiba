@@ -61,8 +61,8 @@
                                         </td>
                                         <td> {{ $prog->slug }} </td>
                                         <td> {{ $prog->user->name }} </td>
-                                        <td> Rp {{ number_format($prog->danaskrg, 2) }} </td>
-                                        <td> Rp {{ number_format($prog->targetdana, 2) }} </td>
+                                        <td> Rp {{ number_format($prog->danaskrg, 2, ',','.') }} </td>
+                                        <td> Rp {{ number_format($prog->targetdana, 2, ',','.') }} </td>
                                         <td>
                                             @if ($prog->status == 1)
                                                 <div class="badge badge-outline-warning" style="padding-left: 15px; padding-right: 15px">Pending</div>

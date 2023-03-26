@@ -89,9 +89,8 @@
     {{-- End Carousel Bantu Mereka --}}
 
     <!-- ======= Portfolio Section ======= -->
-    <section id="progam" class="portfolio sections-bg">
+    {{-- <section id="progam" class="portfolio sections-bg">
         <div class="container" data-aos="fade-up">
-
             <div class="section-header" style="margin-bottom: -30px">
                 <h2>Progam Bantuan</h2>
                 <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem uia reprehenderit sunt deleniti</p>
@@ -120,6 +119,9 @@
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">App 1</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
+                                <div class="progress" role="progressbar" aria-label="Example 100px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 30px">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" title="Rp20.000,00" style="width: {{ 100000/25000*100 }}%">Rp20.000,00</div>
+                                </div>
                                 <div class="text-center mt-3">
                                     <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
                                 </div>
@@ -275,8 +277,59 @@
             </div>
 
         </div>
-    </section>
+    </section> --}}
     <!-- End Portfolio Section -->
+
+    <section id="progam" class="portfolio sections-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header" style="margin-bottom: -30px">
+                <h2>Progam Bantuan</h2>
+                <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem uia reprehenderit sunt deleniti</p>
+            </div>
+            <div class="text-center">
+                <a class="btn btn-light" style="background-color: #008374; color: white" href="">Buat Progam Baru</a>
+            </div>
+
+            <div class="portfolio-isotope" style="margin-top: 15px" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
+
+                <div>
+                    <ul class="portfolio-flters">
+                        <li data-filter="*" class="filter-active">All</li>
+                        @foreach ($kategori as $kat)
+                            <li data-filter=".{{ $kat->slug }}">{{ $kat->nama }}</li>
+                        @endforeach
+                    </ul><!-- End Portfolio Filters -->
+                </div>
+
+
+                <div class="row gy-4 portfolio-container">
+                    {{-- @dd($program) --}}
+                    @foreach ($program as $prog)
+                        <div class="col-xl-4 col-md-6 portfolio-item {{ $prog->kategori->slug }}">
+                            <div class="portfolio-wrap">
+                                <a href="{{ asset('storage/'.$prog->gambar) }}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{ asset('storage/'.$prog->gambar) }}" style="height: 311px; width: 420px" class="img-fluid" alt=""></a>
+                                <div class="portfolio-info">
+                                    <h4><a href="portfolio-details.html" title="More Details">{{ $prog->nama }}</a></h4>
+                                    <p>{{ $prog->deskripsi }}</p>
+                                    <div class="progress" role="progressbar" aria-label="Example 100px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 30px">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" title="Rp{{ $prog->danaskrg }}" style="width: {{ $prog->danaskrg/$prog->targetdana*100 }}%">Rp{{ number_format($prog->danaskrg,'2',',','.') }}</div>
+                                    </div>
+                                    <div class="text-center mt-3">
+                                        <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    <!-- End Portfolio Item -->
+
+                </div>
+                <!-- End Portfolio Container -->
+
+            </div>
+
+        </div>
+    </section>
 
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
@@ -1031,5 +1084,7 @@
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
+
+
 
   @endsection

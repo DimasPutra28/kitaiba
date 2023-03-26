@@ -56,7 +56,7 @@
         </div>
       </section>
       <!-- End Top Bar -->
-    <header id="header" class="header d-flex align-items-center mt-3">
+    <header id="header" class="header d-flex align-items-center">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
             <a href="/" class="logo d-flex d-flex align-items-center text-decoration-none">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
@@ -98,12 +98,12 @@
     </header>
     <section class="p-6">
         @if (session()->has('success'))
-        <div class="erga" style="padding-left: 440px">
-            <div class="alert alert-success alert-dismissible fade show col-lg-6" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="row justify-content-center">
+                <div class="alert alert-success alert-dismissible text-center col-lg-4 fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             </div>
-        </div>
         @endif
         <div class="wrapper">
             <div class="logo">

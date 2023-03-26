@@ -27,6 +27,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+  {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous"> --}}
 
 </head>
 
@@ -195,6 +196,17 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
 
+  <script>
+    const toastTrigger = document.getElementById('liveToastBtn')
+    const toastLiveExample = document.getElementById('liveToast')
+
+    if (toastTrigger) {
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+    toastTrigger.addEventListener('click', () => {
+        toastBootstrap.show()
+    })
+    }
+  </script>
 
 </body>
 

@@ -21,7 +21,7 @@
 
         @if (session()->has('verifikasi'))
             <div class="row justify-content-center">
-                <div class="alert alert-danger alert-dismissible text-center col-lg-4 fade show" role="alert">
+                <div class="alert alert-danger alert-dismissible text-center col-lg-5 fade show" role="alert">
                     {{ session('verifikasi') }}&nbsp;<a href="/verifikasi">Verifikasi disini!</a>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
@@ -30,7 +30,7 @@
 
         @if (Session::has('message'))
             <div class="row justify-content-center">
-                <div class="alert alert-danger alert-dismissible text-center col-lg-4 fade show" role="alert">
+                <div class="alert alert-success alert-dismissible text-center col-lg-4 fade show" role="alert">
                     {{ Session::get('message') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>

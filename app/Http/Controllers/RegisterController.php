@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
 
 
@@ -64,10 +64,10 @@ class RegisterController extends Controller
                 User::where('id', $user->id)->update($erga);
                 return redirect('/login')->with('success', 'Akun anda telah terverifikasi, Silahkan masuk');
             }else{
-                return back()->with('error', 'Kode otp salah!');
+                return back()->with('error', 'Kode otp salah, silahkan coba lagi!');
             }
         } else {
-            return back()->with('error', 'Kode otp salah!');
+            return back()->with('error', 'Kode otp salah, silahkan coba lagi!');
         }
     }
 }

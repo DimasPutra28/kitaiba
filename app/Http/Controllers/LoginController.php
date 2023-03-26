@@ -30,6 +30,8 @@ class LoginController extends Controller
                     }else{
                         return redirect()->intended('/');
                     }
+                }else{
+                    return back()->with('loginError', 'Silahkan coba lagi untuk masuk ke sistem');
                 }
             }else{
                 return back()->with('verifikasi', 'Akun belum terverifikasi, Silahkan cek email anda');
