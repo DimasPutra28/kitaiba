@@ -5,9 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ $title }}</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="{{ asset('/assets/vendors/mdi/css/materialdesignicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/vendors/css/vendor.bundle.base.css') }}">
+    <link rel="stylesheet" href="{{ asset('../../assets/vendors/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('../../assets/vendors/css/vendor.bundle.base.css') }}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('../../assets/vendors/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('../../assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css') }}">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End Plugin css for this page -->
@@ -40,8 +43,8 @@
       <!-- partial:../../partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="/dashboard"><img src="{{ asset('assets/images/logo.svg') }}" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="/dashboard"><img src="{{ asset('../../assets/images/logo-mini.svg') }}" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo" href="/dashboard"><img src="{{ asset('assets/images/anjay.svg') }}" alt="logo" style="height: 100px;" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="/dashboard"><img src="{{ asset('../../assets/images/anjay2.svg') }}" style="height: 10cm;" alt="logo" /></a>
         </div>
         <ul class="nav">
           <li class="nav-item profile">
@@ -365,6 +368,17 @@
     <script type="text/javascript" src="{{ asset('https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7-beta.23/jquery.inputmask.min.js') }}"></script>
 
+    <!-- plugins:js -->
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{{ asset('../../assets/vendors/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('../../assets/vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
+    <!-- End plugin js for this page -->
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="{{ asset('../../assets/js/file-upload.js') }}"></script>
+    <script src="{{ asset('../../assets/js/typeahead.js') }}"></script>
+    <script src="{{ asset('../../assets/js/select2.js') }}"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->

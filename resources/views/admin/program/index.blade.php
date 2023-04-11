@@ -59,7 +59,7 @@
                                         <td>
                                             <span class="pl-2">{{ $prog->nama }}</span>
                                         </td>
-                                        <td> {{ $prog->slug }} </td>
+                                    <td> {{ $prog->kategori->nama }} </td>
                                         <td> {{ $prog->user->name }} </td>
                                         <td> Rp {{ number_format($prog->danaskrg, 2, ',','.') }} </td>
                                         <td> Rp {{ number_format($prog->targetdana, 2, ',','.') }} </td>
@@ -67,7 +67,7 @@
                                             @if ($prog->status == 1)
                                                 <div class="badge badge-outline-warning" style="padding-left: 15px; padding-right: 15px">Pending</div>
                                             @elseif ($prog->status == 2)
-                                                <div class="badge badge-outline-info" style="padding-left: 24px; padding-right: 24px">Aktif</div>
+                                            <div class="badge badge-outline-info" style="padding-left: 24px; padding-right: 24px">Aktif</div>
                                             @elseif ($prog->status == 3)
                                                 <div class="badge badge-outline-light">Non Aktif</div>
                                             @elseif ($prog->status == 4)
@@ -76,7 +76,7 @@
                                                 <div class="badge badge-outline-success" style="padding-left: 18px; padding-right: 18px">Selesai</div>
                                             @endif
                                         </td>
-                                        <td> {{ $prog->created_at->format('d/m/Y') }} </td>
+                                        <td> {{ $prog->created_at->format('D d/M/Y') }} </td>
                                     </tr>
                                     @endforeach
                             </tbody>

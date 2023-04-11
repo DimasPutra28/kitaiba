@@ -38,7 +38,10 @@ class RegisterController extends Controller
         ]);
 
         $validatedData['password'] = Hash::make($validatedData['password']);
-
+        $admin = User::all();
+        if($admin->count() == 0){
+            $validatedData['roleid'] = 1;
+        }
         User::create($validatedData);
 
         $user = User::where('email', $request->email)->first();

@@ -7,8 +7,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\ProgramController;
-use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\ProgramDonasiController;
 
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Admin\KategoriProgramController;
@@ -51,6 +52,9 @@ Route::get('/ubahpassword', [ChangePasswordController::class, 'index'])->middlew
 Route::post('/ubahpassword', [ChangePasswordController::class, 'store'])->middleware('auth');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('admin');
+
+Route::get('/createprogram', [ProgramDonasiController::class, 'index'])->middleware('auth');
+
 Route::get('/cek', function(){
     return view('cek');
 });

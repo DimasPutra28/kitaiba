@@ -60,8 +60,8 @@
                                             </td>
                                             <td> {{ $kat->slug }} </td>
                                             <td> {{ $kat->user->name }} </td>
-                                            <td> {{ $kat->created_at }} </td>
-                                            <td> {{ $kat->updated_at }} </td>
+                                            <td> {{ $kat->created_at->format('D d/M/Y') }} </td>
+                                            <td> {{ $kat->updated_at->format('D d/M/Y') }} </td>
                                             <td> <a class="btn btn-primary" style="margin-right: 5px; border-radius: 5px; background-color: rgb(50, 45, 134); padding: 12px 27px 12px 27px" href="/dash-daftarprogram/{{ $kat->slug }}">Detail</a> </td>
                                             <td>
                                                 @if (auth()->user()->id === $kat->user->id)

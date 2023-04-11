@@ -28,7 +28,7 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="id_kategori">Katgeori Program</label>
                             <select class="form-control" id="id_kategori" name="id_kategori">
                                 <option selected>Pilih Kategori Program</option>
@@ -40,20 +40,25 @@
                                     @endif
                                 @endforeach
                             </select>
-                        </div>
-
-                        {{-- <div class="form-group">
-                            <label for="targetdana">Target dana donasi</label>
-                            <input type="number" class="form-control @error('targetdana') is-invalid @enderror" id="targetdana" name="targetdana" placeholder="Rp1.000.000,00" required value="{{ old('targetdana') }}">
-                            @error('targetdana')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
                         </div> --}}
 
                         <div class="form-group">
-                            <label for="currency-field">Enter Amount</label>
+                            <label for="id_kategori">Kategori Program</label>
+                            <select class="js-example-basic-single" style="width:100%" id="id_kategori" name="id_kategori" style="">
+                                <option selected>Pilih Kategori Program</option>
+                                @foreach ($kategori as $kat )
+                                    @if (old('id_kategori') == $kat->id)
+                                        <option value="{{ $kat->id }}" selected>{{ $kat->nama }}</option>
+                                    @else
+                                        <option value="{{ $kat->id }}">{{ $kat->nama }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="currency-field">Target Dana Donasi</label>
                             <input type="text" class="form-control @error('targetdana') is-invalid @enderror"name="targetdana" id="txtExampleBoxOne" onkeypress="return number(event )"
                             onBlur="formatCurrency(this, 'Rp ', 'blur');" onkeyup="formatCurrency(this, 'Rp ');" data-inputmask="'alias': 'numeric', 'autoGroup' :true, 'digitsOptional':false, 'removeMaskOnSubmit' : true, 'autoUnmask' : true"
                             placeholder="Rp 1.000.000,00" required value="{{ old('targetdana') }}">
@@ -66,7 +71,7 @@
 
                         <div class="form-group">
                             <label for="deadline">Tenggat Donasi</label>
-                            <input type="date" class="form-control @error('deadline') is-invalid @enderror" id="deadline" name="deadline" placeholder="dd/mm/yyyy" required value="{{ old('deadline') }}">
+                            <input type="date" class="form-control @error('deadline') is-invalid @enderror"  name="deadline" min="{{ date('Y-m-d') }}" id="inputdate" placeholder="dd/mm/yyyy" required value="{{ old('deadline') }}" >
                             @error('deadline')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -188,5 +193,21 @@
             return true;
           }
         }
+    </script>
+
+    <script type="text/javascript">
+        $(function(){
+            var dtToday = new Date();
+
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            if(month < 10)
+                month = '0' + month.toString();
+            if(day < 10)
+            day = '0' + day.toString();
+            var maxDate = year + '-' + month + '-' + day;
+            $('#inputdate').attr('min', maxDate);
+        });
     </script>
 @endsection

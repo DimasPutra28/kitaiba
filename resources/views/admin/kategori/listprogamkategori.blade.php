@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('erga')
+{{-- @dd($program) --}}
     <div class="title mb-4">
         <h1 class="text-center" style="font-family:courier new; font-style: initial;">Daftar Program Kategori: {{ $kategori[0]->nama }}</h1>
     </div>
@@ -41,33 +42,44 @@
                             </thead>
 
                             <tbody>
-                                @if ($program)
-
-                            </tbody>
-                        </table>
-                                <div class="text-center mt-3">
-                                    <strong style="color: #6C7293; font-family:courier new">Belum ada program di kategori ini!</strong>
-                                </div>
-                                @else
-
+                                @if ($program->count() != 0)
                                     @foreach ($program as $prog)
-                                    <tr>
-                                        <td>
-                                            <strong>{{ $loop->iteration }}</strong>
-                                        </td>
-                                        <td>
-                                            <span class="pl-2">{{ $prog->nama }}</span>
-                                        </td>
-                                        <td> {{ $prog->slug }} </td>
-                                        <td> {{ $prog->user->name }} </td>
-                                        <td> {{ $prog->danaskrg }} </td>
-                                        <td> {{ $prog->targetdana }} </td>
-                                        <td> {{ $prog->status }} </td>
-                                        <td> {{ $prog->created_at->format('dd/mm/yyyy') }} </td>
-                                    </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>{{ $loop->iteration }}</strong>
+                                            </td>
+                                            <td>
+                                                <span class="pl-2">{{ $prog->nama }}</span>
+                                            </td>
+                                            <td> {{ $prog->slug }} </td>
+                                            <td> {{ $prog->user->name }} </td>
+                                            <td> Rp {{ number_format($prog->danaskrg, 2, ',','.') }} </td>
+                                            <td> Rp {{ number_format($prog->targetdana, 2, ',','.') }} </td>
+                                            <td>
+                                                @if ($prog->status == 1)
+                                                    <div class="badge badge-outline-warning" style="padding-left: 15px; padding-right: 15px">Pending</div>
+                                                @elseif ($prog->status == 2)
+                                                    <div class="badge badge-outline-info" style="padding-left: 24px; padding-right: 24px">Aktif</div>
+                                                @elseif ($prog->status == 3)
+                                                    <div class="badge badge-outline-light">Non Aktif</div>
+                                                @elseif ($prog->status == 4)
+                                                    <div class="badge badge-outline-danger" style="padding-left: 23px; padding-right: 23px">Batal</div>
+                                                @else
+                                                    <div class="badge badge-outline-success" style="padding-left: 17px; padding-right: 18px">Selesai</div>
+                                                @endif
+                                            </td>
+                                            <td> {{ $prog->created_at->format('D/M/Y') }} </td>
+                                        </tr>
                                     @endforeach
                             </tbody>
                         </table>
+                                @else
+                            </tbody>
+                        </table>
+                                    <div class="text-center mt-3">
+                                        <strong style="color: #6C7293; font-family:courier new">Belum ada program di kategori ini!</strong>
+                                    </div>
+
                                 @endif
                     <div>
                 </div>

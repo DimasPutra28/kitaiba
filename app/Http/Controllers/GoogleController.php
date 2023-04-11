@@ -13,7 +13,7 @@ class GoogleController extends Controller
     public function redirectToGoogle(){
         return Socialite::driver('google')->redirect();
     }
-    
+
     public function handleGoogleCallback(){
         try {
             $user = Socialite::driver('google')->user();
@@ -43,20 +43,31 @@ class GoogleController extends Controller
                         return redirect()->intended('/');
                     }
                 }else {
-                    $newUser = User::create([
-                        'name' => $user->getName(),
-                        'username' => $user->getNickname(),
-                        'email' => $user->getEmail(),
-                        'googleid' => $user->getId(),
-                        'email_verified_at' => Carbon::now()
-
-                    ]);
+                    $admin = User::all();
+                    if ($admin->count() == 0) {
+                        $newUser = User::create([
+                            'name' => $user->getName(),
+                            'username' => $user->getNickname(),
+                            'email' => $user->getEmail(),
+                            'googleid' => $user->getId(),
+                            'email_verified_at' => Carbon::now(),
+                            'roleid' => 1
+                        ]);
+                    } else {
+                        $newUser = User::create([
+                            'name' => $user->getName(),
+                            'username' => $user->getNickname(),
+                            'email' => $user->getEmail(),
+                            'googleid' => $user->getId(),
+                            'email_verified_at' => Carbon::now()
+                        ]);
+                    }
                     Auth::login($newUser);
                     return redirect('/validasi')->with('success', 'Masukkan username dan password untuk validasi pendaftaran akun');
                 }
             }
         } catch (\Throwable $th) {
-            //throw $th;
+            return back()->with('loginError', 'Silahkan coba lagi untuk masuk ke sistem');
         }
     }
 }
