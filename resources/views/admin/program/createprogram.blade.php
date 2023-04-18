@@ -28,19 +28,6 @@
                                 </div>
                             @enderror
                         </div>
-                        {{-- <div class="form-group">
-                            <label for="id_kategori">Katgeori Program</label>
-                            <select class="form-control" id="id_kategori" name="id_kategori">
-                                <option selected>Pilih Kategori Program</option>
-                                @foreach ($kategori as $kat )
-                                    @if (old('id_kategori') == $kat->id)
-                                        <option value="{{ $kat->id }}" selected>{{ $kat->nama }}</option>
-                                    @else
-                                        <option value="{{ $kat->id }}">{{ $kat->nama }}</option>
-                                    @endif
-                                @endforeach
-                            </select>
-                        </div> --}}
 
                         <div class="form-group">
                             <label for="id_kategori">Kategori Program</label>
@@ -195,19 +182,4 @@
         }
     </script>
 
-    <script type="text/javascript">
-        $(function(){
-            var dtToday = new Date();
-
-            var month = dtToday.getMonth() + 1;
-            var day = dtToday.getDate();
-            var year = dtToday.getFullYear();
-            if(month < 10)
-                month = '0' + month.toString();
-            if(day < 10)
-            day = '0' + day.toString();
-            var maxDate = year + '-' + month + '-' + day;
-            $('#inputdate').attr('min', maxDate);
-        });
-    </script>
 @endsection

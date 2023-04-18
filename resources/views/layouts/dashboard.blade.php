@@ -25,10 +25,26 @@
   <link href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
+
   <!-- Template Main CSS File -->
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
   {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous"> --}}
+    <style>
+        input[type=file]::file-selector-button {
+            margin-top: -7px;
+            border: none;
+            background: #084cdf;
+            padding: 9px 20px;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            transition: background .2s ease-in-out;
+        }
 
+        input[type=file]::file-selector-button:hover {
+        background-color: #0d45a5;
+        }
+    </style>
 </head>
 
 <body>
@@ -55,8 +71,6 @@
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="/" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="img/logo.png" alt=""> -->
         <h1>Bantu Mereka<span>.</span></h1>
       </a>
       <nav id="navbar" class="navbar" style="padding-right: 75px">
@@ -192,6 +206,9 @@
   <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}"></script>
   <script src="{{ asset('vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
+
+  <script src="{{ asset('../../assets/vendors/select2/select2.min.js') }}"></script>
+  <script src="{{ asset('../../assets/vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
 
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
