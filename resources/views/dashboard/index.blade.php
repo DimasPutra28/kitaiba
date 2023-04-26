@@ -42,7 +42,7 @@
           <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-person-workspace"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Riwayat Progam</a></h4>
+              <h4 class="title"><a href="/riwayatprogram" class="stretched-link">Riwayat Progam</a></h4>
             </div>
           </div>
           <!--End Icon Box -->
@@ -137,7 +137,9 @@
                 <!-- End Portfolio Container -->
 
             </div>
-
+            <div class="allprogram d-flex justify-content-center mt-5">
+                <a class="btn btn-light" style="background-color: #442206b8; color: white" href="">Lihat semua program donasi</a>
+            </div>
         </div>
     </section>
 

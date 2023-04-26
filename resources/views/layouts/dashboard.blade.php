@@ -25,18 +25,32 @@
   <link href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
+  {{-- form --}}
+  <link href="form/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+  <link href="/form/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+  <!-- Font special for pages-->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+  <!-- Vendor CSS-->
+  <link href="/form/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+  <link href="/form/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+  <!-- Main CSS-->
+  <link href="/form/css/main.css" rel="stylesheet" media="all">
+  {{-- end form --}}
+
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
   {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous"> --}}
     <style>
         input[type=file]::file-selector-button {
-            margin-top: -7px;
+            /* margin-top: -7px; */
             border: none;
-            background: #084cdf;
-            padding: 9px 20px;
-            border-radius: 10px;
-            color: #fff;
+            background: #8daef3;
+            /* padding: 9px 10px; */
+            border-radius: 10px;/
+            color: #ffffff;
             cursor: pointer;
             transition: background .2s ease-in-out;
         }
@@ -224,6 +238,18 @@
     })
     }
   </script>
+
+  {{-- form --}}
+    <!-- Jquery JS-->
+    <script src="form/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="form/vendor/select2/select2.min.js"></script>
+    <script src="form/vendor/datepicker/moment.min.js"></script>
+    <script src="form/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="form/js/global.js"></script>
+    {{-- end form --}}
 
 </body>
 

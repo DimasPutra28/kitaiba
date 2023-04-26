@@ -46,7 +46,7 @@
 
                         <div class="form-group">
                             <label for="currency-field">Target Dana Donasi</label>
-                            <input type="text" class="form-control @error('targetdana') is-invalid @enderror"name="targetdana" id="txtExampleBoxOne" onkeypress="return number(event )"
+                            <input type="text" class="form-control @error('targetdana') is-invalid @enderror" name="targetdana" id="txtExampleBoxOne" onkeypress="return number(event )"
                             onBlur="formatCurrency(this, 'Rp ', 'blur');" onkeyup="formatCurrency(this, 'Rp ');" data-inputmask="'alias': 'numeric', 'autoGroup' :true, 'digitsOptional':false, 'removeMaskOnSubmit' : true, 'autoUnmask' : true"
                             placeholder="Rp 1.000.000,00" required value="{{ old('targetdana') }}">
                             @error('targetdana')
@@ -68,7 +68,7 @@
 
                         <div class="form-group">
                             <label for="deskripsi">Deskripsi Program</label>
-                            <input type="text" class="form-control @error('deadline') is-invalid @enderror" name="deskripsi" id="deskripsi" placeholder="Deskripsi program" required value="{{ old('deskripsi') }}">
+                            <input type="text" class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" id="deskripsi" placeholder="Deskripsi program" required value="{{ old('deskripsi') }}">
                             @error('deskripsi')
                                 <div class="invalid-feedback">
                                     {{ $message }}

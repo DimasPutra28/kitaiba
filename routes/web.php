@@ -54,6 +54,9 @@ Route::post('/ubahpassword', [ChangePasswordController::class, 'store'])->middle
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('admin');
 
 Route::get('/createprogram', [ProgramDonasiController::class, 'index'])->middleware('auth');
+Route::post('/createprogram', [ProgramDonasiController::class, 'store'])->middleware('auth');
+
+Route::get('/riwayatprogram', [HomeController::class, 'riwayat'])->middleware('auth');
 
 Route::get('/cek', function(){
     return view('cek');

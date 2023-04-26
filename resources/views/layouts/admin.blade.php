@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('/assets/images/favicon.png') }}" />
+
+
     <style>
         input[type=file]::file-selector-button {
         margin-top: -4px;
@@ -149,7 +151,7 @@
             </ul>
             <ul class="navbar-nav navbar-nav-right">
               <li class="nav-item dropdown d-none d-lg-block">
-                <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create Data Master</a>
+                <a class="nav-link btn btn-lg-light create-new-button" style="background-color: #104d45" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create Data Master</a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown">
                   <h6 class="p-3 mb-0">Data Master</h6>
                   <div class="dropdown-divider"></div>
@@ -382,5 +384,7 @@
     <!-- endinject -->
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->
+
+
   </body>
 </html>

@@ -12,7 +12,15 @@ class HomeController extends Controller
         return view('dashboard.index', [
             "title" => "Bantu Mereka",
             "kategori" => KategoriProgam::all(),
-            "program" => Program::where('status', 2)->get()
+            "program" => Program::where('status', 2)->paginate(6)
+        ]);
+    }
+
+    public function riwayat(){
+        return view('dashboard.riwayatprogram', [
+            "title" => "Riwayat Program Donasi",
+            "kategori" => KategoriProgam::all(),
+            "program" => Program::where('status', 2)->paginate(6)
         ]);
     }
 }
