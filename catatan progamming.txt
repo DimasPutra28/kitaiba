@@ -4,6 +4,6 @@
     status 1 = pending;
     status 2 = aktif;
     status 3 = non-aktif;
-    status 1 = batal;
-    status 1 = selesai;
+    status 4 = batal;
+    status 5 = selesai;
 }

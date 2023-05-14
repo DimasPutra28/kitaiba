@@ -1407,6 +1407,93 @@ section {
   padding: 0;
 }
 
+/* ///////////////////// */
+
+.portfolio-details .portfolio-flters {
+    padding: 0 0 20px 0;
+    margin: 0 auto;
+    list-style: none;
+    text-align: center;
+  }
+
+  .portfolio-details .portfolio-flters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 10px;
+    line-height: 1;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .portfolio-details .portfolio-flters li:hover,
+  .portfolio-details .portfolio-flters li.filter-active {
+    color: var(--color-primary);
+  }
+
+  .portfolio-details .portfolio-flters li:first-child {
+    margin-left: 0;
+  }
+
+  .portfolio-details .portfolio-flters li:last-child {
+    margin-right: 0;
+  }
+
+  @media (max-width: 575px) {
+    .portfolio-details .portfolio-flters li {
+      font-size: 14px;
+      margin: 0 5px;
+    }
+  }
+
+  .portfolio-details .portfolio-wrap {
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .portfolio-details .portfolio-wrap img {
+    transition: 0.3s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .portfolio-details .portfolio-wrap .portfolio-info {
+    padding: 25px 20px;
+    background-color: #fff;
+    position: relative;
+    border-top: 1px solid #f3f3f3;
+    z-index: 2;
+  }
+
+  .portfolio-details .portfolio-wrap .portfolio-info h4 {
+    font-size: 18px;
+    font-weight: 600;
+    padding-right: 50px;
+  }
+
+  .portfolio-details .portfolio-wrap .portfolio-info h4 a {
+    color: var(--color-default);
+    transition: 0.3s;
+  }
+
+  .portfolio-details .portfolio-wrap .portfolio-info h4 a:hover {
+    color: var(--color-primary);
+  }
+
+  .portfolio-details .portfolio-wrap .portfolio-info p {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 0;
+    padding-right: 50px;
+  }
+
+  .portfolio-details .portfolio-wrap:hover img {
+    transform: scale(1.1);
+  }
+
 /*--------------------------------------------------------------
 # Our Team Section
 --------------------------------------------------------------*/
@@ -2723,3 +2810,4 @@ section {
 .footer .credits a {
   color: #fff;
 }
+

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Donasi;
 use App\Models\Program;
 use App\Models\KategoriProgram;
 use Laravel\Sanctum\HasApiTokens;
@@ -28,6 +29,10 @@ class User extends Authenticatable
 
     public function kategori(){
         return $this->hasMany(KategoriProgram::class, 'id_user');
+    }
+
+    public function donasi(){
+        return $this->hasMany(Donasi::class, 'id_user');
     }
 
     /**

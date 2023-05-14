@@ -91,11 +91,11 @@
     <section id="progam" class="portfolio sections-bg">
         <div class="container" data-aos="fade-up">
             <div class="section-header" style="margin-bottom: -30px">
-                <h2>Progam Bantuan</h2>
-                <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem uia reprehenderit sunt deleniti</p>
+                <h2>Program Donasi</h2>
+                <p>Kita tidak dapat mengubah dunia secara keseluruhan, tetapi kita dapat membuat perbedaan bagi satu orang</p>
             </div>
             <div class="text-center">
-                <a class="btn btn-light" style="background-color: #008374; color: white" href="/createprogram">Buat Progam Baru</a>
+                <a class="btn btn-light" style="background-color: #008374; color: white; padding: 12px; font-family: sans-serif" href="/createprogram">Buat Progam Baru</a>
             </div>
 
             <div class="portfolio-isotope" style="margin-top: 15px" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
@@ -111,21 +111,20 @@
 
 
                 <div class="row gy-4 portfolio-container">
-                    {{-- @dd($program) --}}
                     @foreach ($program as $prog)
                         <div class="col-xl-4 col-md-6 portfolio-item {{ $prog->kategori->slug }}">
                             <div class="portfolio-wrap">
                                 <a href="{{ asset('storage/'.$prog->gambar) }}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{ asset('storage/'.$prog->gambar) }}" style="height: 311px; width: 420px" class="img-fluid" alt=""></a>
                                 <div class="portfolio-info">
-                                    <h4><a href="portfolio-details.html" title="More Details">{{ $prog->nama }}</a></h4>
-                                    <p>{{ $prog->deskripsi }}</p>
+                                    <h4><a href="/detailprogram/{{ $prog->slug }}" title="More Details">{{ $prog->nama }}</a></h4>
+                                    <p>{{ \Carbon\Carbon::parse($prog->deadline)->diffForHumans() }}</p>
                                     <strong>Rp {{ number_format($prog->danaskrg, 2, ',','.') }}</strong>
                                     <div class="progress" role="progressbar" aria-label="Example 100px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 30px">
-                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" title="Rp{{ $prog->danaskrg }}" style="width: {{ $prog->danaskrg/$prog->targetdana*100 }}%">Rp{{ number_format($prog->danaskrg,'2',',','.') }}</div>
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"  style="width: {{ $prog->danaskrg/$prog->targetdana*100 }}%"></div>
                                     </div>
                                     <small>terkumpul dari Rp {{ number_format($prog->targetdana, 2, ',','.') }}</small>
                                     <div class="text-center mt-3">
-                                        <a class="btn btn-light" style="background-color: #008374; color: white" href="">Lihat Selengkapnya</a>
+                                        <a class="btn" style="background-color: #008374; color: white; padding: 12px; font-family: sans-serif" href="/detailprogram/{{ $prog->slug }}">Lihat Selengkapnya</a>
                                     </div>
                                 </div>
                             </div>
@@ -136,9 +135,6 @@
                 </div>
                 <!-- End Portfolio Container -->
 
-            </div>
-            <div class="allprogram d-flex justify-content-center mt-5">
-                <a class="btn btn-light" style="background-color: #442206b8; color: white" href="">Lihat semua program donasi</a>
             </div>
         </div>
     </section>

@@ -11,6 +11,8 @@
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="{{ asset('../../assets/vendors/select2/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('../../assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css') }}">
+    <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End Plugin css for this page -->
@@ -19,7 +21,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{ asset('/assets/images/favicon.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('../../assets/images/anjay2.svg') }}" />
 
 
     <style>
@@ -98,6 +100,14 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
+                <a class="nav-link" href="/">
+                <span class="menu-icon">
+                    <i class="mdi mdi-bank text-success"></i>
+                </span>
+                <span class="menu-title">Website Bantu Mereka</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
                 <a class="nav-link" data-toggle="collapse" href="#master" aria-expanded="false" aria-controls="master">
                 <span class="menu-icon">
                     <i class="mdi mdi-laptop"></i>
@@ -107,7 +117,7 @@
                 </a>
                 <div class="collapse" id="master">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="">User</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/dash-user">User</a></li>
                     <li class="nav-item"><a class="nav-link" href="/dash-kategoriprogram">Kategori Program</a></li>
                     <li class="nav-item"><a class="nav-link" href="/dash-program">Program</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Berita</a></li>
@@ -136,7 +146,7 @@
         <!-- partial:../../partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="/dashboard"><img src="../../assets/images/anjay2.svg" alt="logo" /></a>
           </div>
           <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -151,7 +161,7 @@
             </ul>
             <ul class="navbar-nav navbar-nav-right">
               <li class="nav-item dropdown d-none d-lg-block">
-                <a class="nav-link btn btn-lg-light create-new-button" style="background-color: #104d45" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create Data Master</a>
+                <a class="nav-link btn btn-light btn-lg create-new-button" style="background-color: #104d45" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create Data Master</a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown">
                   <h6 class="p-3 mb-0">Data Master</h6>
                   <div class="dropdown-divider"></div>

@@ -7,7 +7,7 @@
         <div class="col-12 grid-margin">
             @if (session()->has('success'))
                 <div class="row justify-content-end" style="padding-right: 18px">
-                    <div class="alert alert-success col-lg-4" role="alert">
+                    <div class="alert alert-success col-lg-5" role="alert">
                         {{ session('success') }}
                     </div>
                 </div>
@@ -20,6 +20,11 @@
                         </div>
                         <div class="col d-flex justify-content-end" style="padding-right: 23px">
                             <a class="btn btn-primary" style="margin-right: 5px; border-radius: 5px; background-color: rgb(11, 136, 156); padding: 12px 27px 12px 27px" href="/dash-buatkategori"><span style="font-size: 20px; color:rgb(245, 230, 17)">+</span> Tambahkan Kategori</a>
+                        </div>
+                    </div>
+                    <div class="row justify-content-start">
+                        <div class="col-lg-6" style="padding-left: 30px">
+                            <strong>Jumlah Kategori Donasi : {{ $kategori->count() }}</strong>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -60,8 +65,8 @@
                                             </td>
                                             <td> {{ $kat->slug }} </td>
                                             <td> {{ $kat->user->name }} </td>
-                                            <td> {{ $kat->created_at->format('D d/M/Y') }} </td>
-                                            <td> {{ $kat->updated_at->format('D d/M/Y') }} </td>
+                                            <td> {{ \Carbon\Carbon::parse($kat->created_at)->translatedFormat('l, d F Y H:i') }} </td>
+                                            <td> {{ \Carbon\Carbon::parse($kat->updated_at)->translatedFormat('l, d F Y H:i') }} </td>
                                             <td> <a class="btn btn-primary" style="margin-right: 5px; border-radius: 5px; background-color: rgb(50, 45, 134); padding: 12px 27px 12px 27px" href="/dash-daftarprogram/{{ $kat->slug }}">Detail</a> </td>
                                             <td>
                                                 @if (auth()->user()->id === $kat->user->id)
@@ -81,7 +86,7 @@
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-light" data-bs-dismiss="modal" style="margin-right: 5px; border-radius: 5px; background-color: rgb(13, 105, 30); color: white; padding: 12px 27px 12px 27px">Tidak</button>
-                                                                        <form action="/dash-hapuskategori" >
+                                                                        <form action="/dash-hapuskategori" method="POST" >
                                                                             @csrf
                                                                             <input type="hidden" name="id" value="{{ $kat->id }}">
                                                                             <button type="submit" class="btn btn-light" style="margin-right: 5px; border-radius: 5px; background-color: rgb(125, 26, 19); color: white; padding: 12px 27px 12px 27px">Iya</button>

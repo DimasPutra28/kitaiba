@@ -21,4 +21,3 @@ class DonasiFactory extends Factory
         ];
     }
 }
-?>

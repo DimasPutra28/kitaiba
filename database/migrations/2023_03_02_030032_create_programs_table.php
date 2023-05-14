@@ -19,10 +19,10 @@ return new class extends Migration
             $table->foreignId("id_user");
             $table->string('nama');
             $table->string('slug')->unique();
-            $table->string('deskripsi');
+            $table->longText('deskripsi');
             $table->string('gambar')->nullable();
-            $table->integer('targetdana');
-            $table->integer('danaskrg')->default(0);
+            $table->bigInteger('targetdana');
+            $table->bigInteger('danaskrg')->default(0);
             $table->integer('status')->default(1);
             $table->date('deadline');
             $table->timestamps();

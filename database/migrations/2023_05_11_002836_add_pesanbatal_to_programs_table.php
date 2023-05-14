@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('donasis', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId("id_user");
-            $table->foreignId("id_program");
-            $table->boolean("anonim")->default(false);
-            $table->integer("dana");
-            $table->timestamps();
+        Schema::table('programs', function (Blueprint $table) {
+            $table->mediumText('pesanbatal')->nullable();
         });
     }
 
@@ -30,7 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donasis');
+        Schema::table('programs', function (Blueprint $table) {
+            //
+        });
     }
 };
-?>

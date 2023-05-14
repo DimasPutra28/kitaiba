@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+    @extends('layouts.admin')
 @section('erga')
     <div class="title mb-4">
         <h1 class="text-center" style="font-family:courier new; font-style: initial;">Buat Program Donasi</h1>
@@ -31,8 +31,8 @@
 
                         <div class="form-group">
                             <label for="id_kategori">Kategori Program</label>
-                            <select class="js-example-basic-single" style="width:100%" id="id_kategori" name="id_kategori" style="">
-                                <option selected>Pilih Kategori Program</option>
+                            <select class="form-control" style="width:100%" id="id_kategori" name="id_kategori">
+                                <option selected="selected" disabled="disabled">Pilih Kategori Program</option>
                                 @foreach ($kategori as $kat )
                                     @if (old('id_kategori') == $kat->id)
                                         <option value="{{ $kat->id }}" selected>{{ $kat->nama }}</option>

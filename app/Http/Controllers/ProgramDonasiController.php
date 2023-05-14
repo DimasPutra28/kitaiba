@@ -33,11 +33,19 @@ class ProgramDonasiController extends Controller
             $validatedData['gambar'] = $request->file('gambar')->store('program');
         }
         $kategori = KategoriProgam::where('id', $request->id_kategori)->get();
-        $validatedData['slug'] = $kategori[0]->slug."-".Str::random(30);
+        $validatedData['slug'] = Str::random(30);
         $validatedData['id_user'] = auth()->user()->id;
         // dd($validatedData);
         Program::create($validatedData);
         $program = Program::where('slug', $validatedData['slug'])->first();
         return back()->with('success', "Program bantuan: $program->nama berhasil ditambahkan");
+    }
+
+    public function detailprogram($slug){
+        $program = Program::where('slug', $slug)->first();
+        return view('dashboard.detailprogram', [
+            "title" => "Program $program->nama",
+            "program" => $program
+        ]);
     }
 }

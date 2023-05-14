@@ -23,6 +23,11 @@
                             <a class="btn btn-primary" style="margin-right: 5px; border-radius: 5px; background-color: rgb(11, 136, 156); padding: 12px 27px 12px 27px" href="/dash-buatprogram"><span style="font-size: 20px; color:rgb(245, 230, 17)">+</span> Buat Program Baru</a>
                         </div>
                     </div>
+                    <div class="row justify-content-start">
+                        <div class="col-lg-6" style="padding-left: 30px">
+                            <strong>Jumlah Program Donasi : {{ $program->count() }}</strong>
+                        </div>
+                    </div>
                     <div class="table-responsive">
                         <table class="table text-center">
 
@@ -37,12 +42,12 @@
                                     <th> Dana terkumpul </th>
                                     <th> Target dana </th>
                                     <th> Status program </th>
-                                    <th> Tanggal dibuat </th>
+                                    <th> Tenggat program </th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @if ($program == null)
+                                @if ($program->count() == 0)
 
                             </tbody>
                         </table>
@@ -54,12 +59,14 @@
                                     @foreach ($program as $prog)
                                     <tr>
                                         <td>
-                                            <strong>{{ $loop->iteration }}</strong>
+                                            <strong>
+                                                {{ $program->firstItem() + $loop->index  }}
+                                            </strong>
                                         </td>
                                         <td>
                                             <span class="pl-2">{{ $prog->nama }}</span>
                                         </td>
-                                    <td> {{ $prog->kategori->nama }} </td>
+                                    <td> {{ $prog->slug  }} </td>
                                         <td> {{ $prog->user->name }} </td>
                                         <td> Rp {{ number_format($prog->danaskrg, 2, ',','.') }} </td>
                                         <td> Rp {{ number_format($prog->targetdana, 2, ',','.') }} </td>
@@ -76,12 +83,16 @@
                                                 <div class="badge badge-outline-success" style="padding-left: 18px; padding-right: 18px">Selesai</div>
                                             @endif
                                         </td>
-                                        <td> {{ $prog->created_at->format('D d/M/Y') }} </td>
+                                        <td> {{ \Carbon\Carbon::parse($prog->deadline)->translatedFormat('l, d F Y') }} </td>
                                     </tr>
                                     @endforeach
                             </tbody>
                         </table>
-                                @endif
+                        @endif
+                        <br>
+                        <div class="erga d-flex justify-content-center">
+                            {{ $program->links() }}
+                        </div>
                     <div>
                 </div>
             </div>

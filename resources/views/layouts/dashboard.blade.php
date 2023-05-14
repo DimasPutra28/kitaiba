@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('img/logo.png') }}" rel="icon">
   <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -36,13 +36,14 @@
   <link href="/form/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
 
   <!-- Main CSS-->
-  <link href="/form/css/main.css" rel="stylesheet" media="all">
+  <link href="{{ asset('form/css/main.css') }}" rel="stylesheet" media="all">
   {{-- end form --}}
 
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-  {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous"> --}}
+  {{-- <link href="{{ asset('css/style.bundle.css') }}" rel="stylesheet"> --}}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <style>
         input[type=file]::file-selector-button {
             /* margin-top: -7px; */
@@ -53,6 +54,10 @@
             color: #ffffff;
             cursor: pointer;
             transition: background .2s ease-in-out;
+        }
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
         }
 
         input[type=file]::file-selector-button:hover {
@@ -90,12 +95,12 @@
       <nav id="navbar" class="navbar" style="padding-right: 75px">
         <ul>
           <li><a href="/">Beranda</a></li>
-          <li><a href="#progam">Progam</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#recent-posts">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="/#progam">Progam</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#team">Team</a></li>
+          <li><a href="/#recent-posts">Blog</a></li>
+          <li><a href="/#contact">Contact</a></li>
           @auth
             <li class="dropdown" style="margin-right: -27px"><a href="#"><span>{{ auth()->user()->username }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>

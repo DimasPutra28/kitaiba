@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\Donasi;
 use App\Models\KategoriProgam;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,5 +19,9 @@ class Program extends Model
 
     public function user(){
         return $this->belongsTo(User::class, 'id_user');
+    }
+
+    public function donasi(){
+        return $this->hasMany(Donasi::class, 'id_program');
     }
 }

@@ -4,11 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DonasiController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\ProgramController;
-use App\Http\Controllers\ProgramDonasiController;
 
+use App\Http\Controllers\ProgramDonasiController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\ResetPasswordController;
@@ -55,15 +56,23 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('adm
 
 Route::get('/createprogram', [ProgramDonasiController::class, 'index'])->middleware('auth');
 Route::post('/createprogram', [ProgramDonasiController::class, 'store'])->middleware('auth');
+Route::get('/detailprogram/{slug}', [ProgramDonasiController::class, 'detailprogram']);
+
+Route::get('/donasi/{slug}', [DonasiController::class, 'index'])->middleware('auth');
+Route::post('/donasi', [DonasiController::class, 'store'])->middleware('auth');
 
 Route::get('/riwayatprogram', [HomeController::class, 'riwayat'])->middleware('auth');
 
 Route::get('/cek', function(){
-    return view('cek');
+    return view('dashboard.donasi2', [
+        "title" => "nyoba"
+    ]);
 });
 
 //////////////////////////////ADMIN///////////////////////////////////////
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('admin');
+Route::get('/dash-user', [DashboardController::class, 'user'])->middleware('admin');
+
 
 Route::get('/dash-kategoriprogram', [KategoriProgramController::class, 'index'])->middleware('admin');
 Route::get('/dash-buatkategori', [KategoriProgramController::class, 'indexcreate'])->middleware('admin');
@@ -72,13 +81,19 @@ Route::get('/dash-updatekategori/{slug}', [KategoriProgramController::class, 'in
 Route::post('/dash-updatekategori', [KategoriProgramController::class, 'update'])->middleware('admin');
 Route::get('/dash-hapuskategori', [KategoriProgramController::class, 'destroy'])->middleware('admin');
 Route::get('/dash-daftarprogram/{slug}', [KategoriProgramController::class, 'listprogram'])->name('programkategori')->middleware('admin');
-
-
 Route::get('/createslugkategori', [KategoriProgramController::class, 'checkSlug'])->middleware('admin');
 
 Route::get('/dash-program', [ProgramController::class, 'index'])->middleware('admin');
 Route::get('/dash-buatprogram', [ProgramController::class, 'indexcreate'])->middleware('admin');
 Route::post('/dash-buatprogram', [ProgramController::class, 'store'])->middleware('admin');
-
-
-
+Route::get('/dash-allprogram', [ProgramController::class, 'allprogram'])->middleware('admin');
+Route::get('/dash-programpending', [ProgramController::class, 'pending'])->middleware('admin');
+Route::get('/dash-programpending/{slug}', [ProgramController::class, 'detailpending'])->middleware('admin');
+Route::post('/dash-verifikasiprogrampending', [ProgramController::class, 'verifikasi'])->middleware('admin');
+Route::post('/dash-rejectprogrampending', [ProgramController::class, 'reject'])->middleware('admin');
+Route::get('/dash-programbatal', [ProgramController::class, 'batal'])->middleware('admin');
+Route::get('/dash-programaktif', [ProgramController::class, 'aktif'])->middleware('admin');
+Route::post('/dash-nonaktifprogramaktif', [ProgramController::class, 'vakum'])->middleware('admin');
+Route::get('/dash-programnonaktif', [ProgramController::class, 'nonaktif'])->middleware('admin');
+Route::post('/dash-aktifkanprogram', [ProgramController::class, 'aktifkan'])->middleware('admin');
+Route::get('/dash-programselesai', [ProgramController::class, 'selesai'])->middleware('admin');
