@@ -17,7 +17,7 @@
                 <div class="container">
                     <ol>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/detailprogram/{{ $program->slug }}">{{ $program->nama }}</a></li>
+                    <li><a href="/detailprogram/{{ $program->slug }}">{{ ucwords($program->nama) }}</a></li>
                     <li>Donasi</li>
                     </ol>
                 </div>
@@ -39,6 +39,15 @@
                             </div>
                         @endif
 
+                        @if (session()->has('error'))
+                            <div class="row justify-content-center">
+                                <div class="alert alert-danger alert-dismissible text-center col-lg-11 fade show" role="alert">
+                                    {{ session('error') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            </div>
+                        @endif
+
                         <div class="card card-5">
                             <div class="card-heading">
                                 <h2 class="title">Mari Berdonasi</h2>
@@ -50,7 +59,7 @@
                                     </div>
                                     <div class="col-6">
                                         <span>Kamu mendukung program</span>
-                                        <strong>{{ $program->nama }}</strong>
+                                        <strong>{{ ucwords($program->nama) }}</strong>
                                     </div>
                                 </div>
 
@@ -58,7 +67,7 @@
                                     @csrf
                                     <input type="hidden" name="id_program" value="{{ $program->id }}">
                                     <div class="anonim mt-3">
-                                        <span class="mb-3" style="font-weight: 600">Status donatur</span>
+                                        <span class="mb-3" style="font-weight: 600">Status donatur<strong style="color:rgb(231, 40, 40)">*</strong></span>
                                         <div class="row d-flex justify-content-center">
                                             <div class="col-6 mb-2">
                                                 <input type="radio" class="btn-check" name="anonim2" id="NamaAsli" value="NamaAsli" autocomplete="off">
@@ -83,7 +92,7 @@
                                         </div>
                                     </div>
                                     <div class="nominal mt-4">
-                                        <span style="font-weight: 600">Pilih nominal donasi</span>
+                                        <span style="font-weight: 600">Pilih nominal donasi<strong style="color:rgb(231, 40, 40)">*</strong></span>
                                         <div class="row d-flex justify-content-center">
                                             <div class="col-6 mb-2">
                                                 <input type="radio" class="btn-check" name="nominal2" id="pilihan1" autocomplete="off" value="10000">
@@ -128,11 +137,11 @@
                                         <hr class="mb-3" style="border: 2px solid black;">
                                     </div>
                                     <div class="doa">
-                                        <span class="mb-3" style="font-weight: 600">Doa untuk donasi ini (Opsional)</span>
+                                        <span class="mb-3" style="font-weight: 600">Doa untuk donasi ini</span>
                                         <textarea class="form-control mb-4" name="doa" placeholder="Tulis doa disini agar doamu bisa diamini oleh orang lain" style="height: 150px; border-color: black; border-width: 3px;" name="" id="" cols="30" rows="10"></textarea>
-                                        <hr class="mb-3" style="border: 2px solid black;">
+                                        {{-- <hr class="mb-3" style="border: 2px solid black;"> --}}
                                     </div>
-                                    <div class="rincian">
+                                    {{-- <div class="rincian">
                                         <span class="mb-" style="font-weight: 600">Rincian Pembayaran</span>
                                         <div class="card p-3" style="height: auto; border-width: 2px; border-color: rgb(130, 121, 121)">
                                             <div class="row d-flex justify-content-center">
@@ -157,9 +166,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="button d-flex justify-content-center mt-4">
-                                        <button type="submit" class="btn btn-lg" style="background-color: #3A9F94; color: white; text-transform: none; font-family: sans-serif; border-radius: 15px; padding: 12px ">Lanjut ke pembayaran</button>
+                                        <button type="submit" class="btn btn-lg" style="background-color: #3A9F94; color: white; text-transform: none; font-family: sans-serif; border-radius: 15px; padding: 12px 36px 12px 36px ">Donasi</button>
                                     </div>
                                 </form>
 

@@ -47,7 +47,7 @@
                             </div>
                             <strong>Rp {{ number_format($prog->danaskrg, 2, ',','.') }}</strong>
                             <div class="progress progress-md portfolio-progress">
-                                <div class="progress-bar bg-success" role="progressbar"  title="Rp{{ $prog->danaskrg }}" style="width: {{ $prog->danaskrg/$prog->targetdana*100 }}%">Rp{{ number_format($prog->danaskrg,'2',',','.') }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-success" role="progressbar"  title="Rp{{ $prog->danaskrg }}" style="width: {{ $prog->danaskrg/$prog->targetdana*100 }}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <small>terkumpul dari Rp {{ number_format($prog->targetdana, 2, ',','.') }}</small>
                         </div>

@@ -1,63 +1,32 @@
 @extends('layouts.auth')
 @section('erga')
-    <section class="p-6 mt-4">
-        @if (session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-
-        @if (session()->has('error'))
-        <div class="row justify-content-center">
-            <div class="alert alert-danger alert-dismissible text-center col-lg-3 fade show" role="alert">
-                {{ session('error') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        </div>
-        @endif
-
-        @if (session()->has('loginError'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{ session('loginError') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-
-        @if (session()->has('verifikasi'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{ session('verifikasi') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-
-        @if (Session::has('message'))
-                <div class="alert alert-success" role="alert">
-                {{ Session::get('message') }}
-            </div>
-        @endif
-
-
-
-        <div class="wrapper">
-            <div class="logo">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWl40uLVDguqfeV10t64Mi3erMP8IwCVkoGCIEvQV0gPzeJtHj&s" alt="">
-            </div>
-            <div class="text-center mt-4 name">
-                BantuMereka
-            </div>
-            <form action="/verifikasi" method="post" class="p-3">
-                @csrf
-                <div class="form-field d-flex align-items-center" style="margin-bottom: 130px">
-                    <span class="far fa-user"></span>
-                    <input type="number" id="otp" class="form-control @error('otp') is-invalid @enderror" name="otp" placeholder="Kode OTP" required autofocus>
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Verifikasi Email</h2>
                 </div>
-                <button class="btn mt-3" style="background-color: #008374;">Kirim</button>
-            </form>
-            <div class="text-center fs-6">
-                <a href="/lupapassword" class="text-danger">Lupa password?</a> atau <a href="/register">Daftar Akun</a>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+
+                        <form action="/verifikasi" method="POST" class="signin-form">
+                            @csrf
+                            <div class="form-group">
+                                <input type="number" class="form-control @error('otp') is-invalid @enderror" name="otp" placeholder="Kode OTP" required autofocus>
+                                @error('otp')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control btn btn-primary submit px-3">Kirim Kode OTP</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
 @endsection
+

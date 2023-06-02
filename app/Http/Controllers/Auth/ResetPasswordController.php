@@ -52,8 +52,10 @@ class ResetPasswordController extends Controller
     }
 
     public function indexresetpass($token){
+        $user = PasswordReset::where('token', $token)->first();
         return view('password.resetpassword', [
             'token' => $token,
+            "email" => $user,
             "title" => "Reset Password"
         ]);
     }

@@ -14,7 +14,7 @@ class RegisterController extends Controller
     public function index()
     {
         return view('signup.index', [
-            "title" => "Daftar Akun"
+            "title" => "Daftar"
         ]);
     }
 
@@ -51,7 +51,7 @@ class RegisterController extends Controller
         });
         return redirect('/verifikasi')->with('success', "Silahkan verifikasi akun, Sistem telah mengirim kode otp ke email anda");
     }
-        
+
     public function postverifikasi(Request $request){
         $user = User::where('otp', $request->otp)->first();
         if ($user) {

@@ -1,73 +1,50 @@
 @extends('layouts.auth')
 @section('erga')
-    <section class="p-6">
-        @if (session()->has('success'))
             <div class="row justify-content-center">
-                <div class="alert alert-success alert-dismissible text-center col-lg-4 fade show" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Masuk</h2>
                 </div>
             </div>
-        @endif
-
-        @if (session()->has('loginError'))
             <div class="row justify-content-center">
-                <div class="alert alert-danger alert-dismissible text-center col-lg-4 fade show" role="alert">
-                    {{ session('loginError') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+
+                        <form action="/login" method="POST" class="signin-form">
+                            @csrf
+                            <div class="form-group">
+                                <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" placeholder="Nama pengguna" required value="{{ old('username') }}">
+                                @error('username')
+                                    <div class="invalid-feedback"></div>
+                                    {{ $message }}
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <input id="password-field" type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" required>
+                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                @error('password')
+                                    <div class="invalid-feedback"></div>
+                                    {{ $message }}
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control btn submit px-3" style="background-color: #008374">Masuk</button>
+                            </div>
+                        </form>
+
+                        <div class="form-group d-md-flex justify-content-end">
+                            <div class="w-50">
+                                <label class="checkbox-wrap checkbox-primary"><a href="/register" style="color: #fff" title="Daftar sekarang!">Belum punya akun</a></label>
+                            </div>
+                            <div class="w-50 text-md-right">
+                                <a href="/lupapassword" style="color: #fff">Lupa Password</a>
+                            </div>
+                        </div>
+                        <p class="w-100 text-center">&mdash; atau masuk dengan &mdash;</p>
+                        <div class="social d-flex text-center">
+                            <a href="auth/google" class="px-2 py-2 mr-md-1 rounded" style="background-color: white; font-family: 'Trebuchet MS'; font-weight: 600"><span class="bi bi-google" style="color: #DB4639">+</span> Masuk dengan Google</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        @endif
-
-        @if (session()->has('verifikasi'))
-            <div class="row justify-content-center">
-                <div class="alert alert-danger alert-dismissible text-center col-lg-5 fade show" role="alert">
-                    {{ session('verifikasi') }}&nbsp;<a href="/verifikasi">Verifikasi disini!</a>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-        @endif
-
-        @if (Session::has('message'))
-            <div class="row justify-content-center">
-                <div class="alert alert-success alert-dismissible text-center col-lg-4 fade show" role="alert">
-                    {{ Session::get('message') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-        @endif
-
-
-
-        <div class="wrapper">
-            <div class="logo">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWl40uLVDguqfeV10t64Mi3erMP8IwCVkoGCIEvQV0gPzeJtHj&s" alt="">
-            </div>
-            <div class="text-center mt-4 name">
-                BantuMereka
-            </div>
-            <form action="/login" method="post" class="p-3">
-                @csrf
-                <div class="form-field d-flex align-items-center">
-                    <span class="far fa-user"></span>
-                    <input type="text" id="username" class="form-control @error('username') is-invalid @enderror" name="username" placeholder="Username" required value="{{ old('username') }}">
-                </div>
-                @error('username')
-                    <div class="invalid-feedback"></div>
-                    {{ $message }}
-                @enderror
-
-                <div class="form-field d-flex align-items-center" style="margin-top: 20px">
-                    <span class="fas fa-key"></span>
-                    <input type="password" id="password" class="form-control" placeholder="Password" name="password" required />
-                </div>
-                <button class="btn mt-3" style="background-color: #008374">Masuk</button>
-            </form>
-            <div class="erga">
-                <a href="auth/google" class="btn mt-3" style="background-color: #C54B41">Masuk dengan Google</a>
-            </div>
-            <div class="text-center fs-6">
-                <a href="/lupapassword" class="text-danger">Lupa password?</a> atau <a href="/register">Daftar Akun</a>
             </div>
         </div>
     </section>

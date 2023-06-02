@@ -14,7 +14,8 @@ use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Admin\KategoriProgramController;
-
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,14 +53,24 @@ Route::post('/resetpassword', [ResetPasswordController::class, 'resetpass'])->mi
 Route::get('/ubahpassword', [ChangePasswordController::class, 'index'])->middleware('auth');
 Route::post('/ubahpassword', [ChangePasswordController::class, 'store'])->middleware('auth');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('admin');
+Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
+Route::get('/editprofile', [ProfileController::class, 'editprofile'])->middleware('auth');
+Route::post('/editprofile', [ProfileController::class, 'edit'])->middleware('auth');
+Route::get('/transaksisaya', [ProfileController::class, 'transaksi'])->middleware('auth');
+Route::get('/penggalangandanasaya', [ProfileController::class, 'penggalangan'])->middleware('auth');
 
 Route::get('/createprogram', [ProgramDonasiController::class, 'index'])->middleware('auth');
 Route::post('/createprogram', [ProgramDonasiController::class, 'store'])->middleware('auth');
-Route::get('/detailprogram/{slug}', [ProgramDonasiController::class, 'detailprogram']);
+Route::get('/detailprogram/{slug}', [ProgramDonasiController::class, 'detailprogram'])->middleware('auth');
+Route::post('/updateprogram', [ProgramDonasiController::class, 'update'])->middleware('auth');
 
 Route::get('/donasi/{slug}', [DonasiController::class, 'index'])->middleware('auth');
 Route::post('/donasi', [DonasiController::class, 'store'])->middleware('auth');
+Route::get('/detaildonasi/{slug}', [DonasiController::class, 'detaildonasi'])->name('detaildonasi')->middleware('auth');
+Route::get('/detailtransaksi/{slug}', [DonasiController::class, 'detailtransaksi'])->middleware('auth');
+Route::post('/batalkandonasi', [DonasiController::class, 'batal'])->middleware('auth');
+
+Route::get('/blog', [BlogController::class, 'konten'])->middleware('auth');
 
 Route::get('/riwayatprogram', [HomeController::class, 'riwayat'])->middleware('auth');
 
@@ -79,7 +90,7 @@ Route::get('/dash-buatkategori', [KategoriProgramController::class, 'indexcreate
 Route::post('/dash-buatkategori', [KategoriProgramController::class, 'store'])->middleware('admin');
 Route::get('/dash-updatekategori/{slug}', [KategoriProgramController::class, 'indexupdate'])->name('updatekategori')->middleware('admin');
 Route::post('/dash-updatekategori', [KategoriProgramController::class, 'update'])->middleware('admin');
-Route::get('/dash-hapuskategori', [KategoriProgramController::class, 'destroy'])->middleware('admin');
+Route::post('/dash-hapuskategori', [KategoriProgramController::class, 'destroy'])->middleware('admin');
 Route::get('/dash-daftarprogram/{slug}', [KategoriProgramController::class, 'listprogram'])->name('programkategori')->middleware('admin');
 Route::get('/createslugkategori', [KategoriProgramController::class, 'checkSlug'])->middleware('admin');
 

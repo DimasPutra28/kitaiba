@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Donasi;
 use Illuminate\Http\Request;
 use App\Models\KategoriProgam;
 use App\Models\Program;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class ProgramDonasiController extends Controller
 {
@@ -35,7 +38,6 @@ class ProgramDonasiController extends Controller
         $kategori = KategoriProgam::where('id', $request->id_kategori)->get();
         $validatedData['slug'] = Str::random(30);
         $validatedData['id_user'] = auth()->user()->id;
-        // dd($validatedData);
         Program::create($validatedData);
         $program = Program::where('slug', $validatedData['slug'])->first();
         return back()->with('success', "Program bantuan: $program->nama berhasil ditambahkan");
@@ -43,9 +45,42 @@ class ProgramDonasiController extends Controller
 
     public function detailprogram($slug){
         $program = Program::where('slug', $slug)->first();
+        // $donasi = Donasi::where('status', 2)->get();
+        $donatur= DB::table('donasis')
+            ->select('id_program')
+            ->where('id_program', $program->id)
+            ->where('status', 2)
+            ->get();
         return view('dashboard.detailprogram', [
             "title" => "Program $program->nama",
-            "program" => $program
+            "program" => $program,
+            "donatur" => $donatur
         ]);
+    }
+
+    public function update(Request $request){
+        $program = Program::where('id', $request->id)->first();
+        $rules = [
+            "nama" => 'required|max:255',
+            "deskripsi" => 'max:5000',
+            "deadline" => 'required',
+            "gambar" => 'image|file|max:10240'
+        ];
+        $validatedData = $request->validate($rules);
+        if ($request->file('gambar')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['gambar'] = $request->file('gambar')->store('program');
+        }
+
+        $rupiah1 = str_replace('.', '', $request->targetdana);
+        $rupiah2 = str_replace('Rp', '', $rupiah1);
+        $rupiah3 = str_replace(',00', '', $rupiah2);
+        $validatedData['targetdana'] = $rupiah3;
+
+
+        $program->update($validatedData);
+        return back()->with('update', 'Program donasi berhasil di update');
     }
 }

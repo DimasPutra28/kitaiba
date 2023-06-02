@@ -18,9 +18,6 @@
                         <div class="col" style="padding-left: 28px">
                             <h4 class="card-title">Data Master User</h4>
                         </div>
-                        <div class="col d-flex justify-content-end" style="padding-right: 23px">
-                            <a class="btn btn-primary" style="margin-right: 5px; border-radius: 5px; background-color: rgb(11, 136, 156); padding: 12px 27px 12px 27px" href="/dash-buatkategori"><span style="font-size: 20px; color:rgb(245, 230, 17)">+</span> Tambahkan Kategori</a>
-                        </div>
                     </div>
                     <div class="row justify-content-start">
                         <div class="col-lg-6" style="padding-left: 30px">

@@ -540,8 +540,29 @@ section {
     transition: 0.3s;
   }
 
+  .navbar button,
+  .navbar button:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-family: var(--font-primary);
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
   .navbar a i,
   .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+  }
+
+  .navbar button i,
+  .navbar button:focus i {
     font-size: 12px;
     line-height: 0;
     margin-left: 5px;
@@ -551,6 +572,13 @@ section {
   .navbar .active,
   .navbar .active:focus,
   .navbar li:hover>a {
+    color: #fff;
+  }
+
+  .navbar button:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar li:hover>button {
     color: #fff;
   }
 
