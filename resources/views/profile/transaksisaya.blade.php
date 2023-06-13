@@ -467,13 +467,10 @@
             </a>
             <nav id="navbar" class="navbar" style="padding-right: 75px">
                 <ul>
-                    <li><a style="text-decoration: none" href="/">Beranda</a></li>
-                    <li><a style="text-decoration: none" href="/#progam">Progam</a></li>
-                    <li><a style="text-decoration: none" href="/#about">About</a></li>
-                    <li><a style="text-decoration: none" href="/#services">Services</a></li>
-                    <li><a style="text-decoration: none" href="/#team">Team</a></li>
-                    <li><a style="text-decoration: none" href="/#recent-posts">Blog</a></li>
-                    <li><a style="text-decoration: none" href="/#contact">Contact</a></li>
+                    <li><a href="/">Beranda</a></li>
+                    <li><a href="/#progam">Program</a></li>
+                    <li><a href="/#recent-posts">Blogspot</a></li>
+                    <li><a href="/#testimonials">Rating</a></li>
                     @auth
                         <li class="dropdown" style="margin-right: -27px"><a href="#"
                                 style="text-decoration: none"><span>{{ auth()->user()->username }}</span> <i
@@ -578,7 +575,7 @@
                             <ul class="nav nav-pills nav-stacked">
                                 <li style="width: 100%"><a href="/profile"> <i class="fa fa-user"></i>
                                         Profil</a></li>
-                                <li style="width: 100%"><a href="#"> <i class="fa fa-diamond"></i> Donasi Yang Diikuti
+                                <li style="width: 100%"><a href="/programyangdiikuti"> <i class="fa fa-diamond"></i> Donasi Yang Diikuti
                                         <span class="label pull-right r-activity"
                                             style="background: #008374">{{ $program->count() }}</span></a></li>
                                 <li class="active" style="width: 100%"><a href="#"> <i

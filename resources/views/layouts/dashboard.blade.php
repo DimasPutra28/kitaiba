@@ -86,12 +86,6 @@
                         style="text-decoration: none">+62 8331233157716</a></i>
                 {{-- <i class="bi bi-bank d-flex align-items-center ms-4"><a href="">{{ auth()->user()->created_at->format('d / m / Y') }}</a></i> --}}
             </div>
-            <div class="social-links d-none d-md-flex align-items-center">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
-            </div>
         </div>
     </section>
     <!-- End Top Bar -->
@@ -105,12 +99,9 @@
             <nav id="navbar" class="navbar" style="padding-right: 75px">
                 <ul>
                     <li><a href="/">Beranda</a></li>
-                    <li><a href="/#progam">Progam</a></li>
-                    <li><a href="/#about">About</a></li>
-                    <li><a href="/#services">Services</a></li>
-                    <li><a href="/#team">Team</a></li>
-                    <li><a href="/#recent-posts">Blog</a></li>
-                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="/#progam">Program</a></li>
+                    <li><a href="/#recent-posts">Blogspot</a></li>
+                    <li><a href="/#testimonials">Rating</a></li>
                     @auth
                         <li class="dropdown" style="margin-right: -27px"><a
                                 href="#"><span>{{ auth()->user()->username }}</span> <i
@@ -163,60 +154,6 @@
 
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
-
-        <div class="container">
-            <div class="row gy-4">
-                <div class="col-lg-5 col-md-12 footer-info">
-                    <a href="index.html" class="logo d-flex align-items-center">
-                        <span>Bantu Mereka</span>
-                    </a>
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
-                        valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-                    <div class="social-links d-flex mt-4">
-                        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-6 footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-6 footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Product Management</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Graphic Design</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                    <h4>Contact Us</h4>
-                    <p>
-                        A108 KaliKepiting <br>
-                        Surabaya, SBY 60237<br>
-                        indonesia <br><br>
-                        <strong>Phone:</strong> +62 8331 2331 57716<br>
-                        <strong>Email:</strong> unairbantumereka@gmail.com<br>
-                    </p>
-
-                </div>
-
-            </div>
-        </div>
-
         <div class="container mt-4">
             <div class="copyright">
                 &copy; Copyright <strong><span>BantuMereka</span></strong>. All Rights Reserved

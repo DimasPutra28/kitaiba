@@ -20,6 +20,7 @@
                 <div class="container">
                     <ol>
                         <li><a href="/">Home</a></li>
+                        <li><a href="/programdonasi">Program Donasi Bantu Mereka</a></li>
                         <li>Detail Program</li>
                     </ol>
                 </div>
@@ -86,32 +87,53 @@
                                             style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">
                                             Berita terkait</h1>
                                         <div class="portfolio-info">
-                                            <div class="card container py-3 mb-3"
-                                                style="border-radius: 5px; background-color: #F1F1F1">
-                                                <img class="rounded-circle" src="/img/batmanlogo.jpg"
-                                                    style="width: 40px; height: 40px" alt="user">
-                                                <h4><a href="" title="More Details">Dina Indayati</a></h4>
-                                                <small>2 jam yang lalu</small>
-                                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                            </div>
 
-                                            <div class="card container py-3 mb-3"
-                                                style="border-radius: 5px; background-color: #F1F1F1">
-                                                <img class="rounded-circle" src="/img/batmanlogo.jpg"
-                                                    style="width: 40px; height: 40px" alt="user">
-                                                <h4><a href="" title="More Details">Dina Indayati</a></h4>
-                                                <small>2 jam yang lalu</small>
-                                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                            </div>
+                                            @if ($berita->count() == 0)
+                                                <h4>Belum ada berita pada program ini!</h4>
+                                            @else
+                                                <div class="blog">
+                                                    <h3>{{ $berita[0]->judul }}</h3>
+                                                    <div class="blog-details">
+                                                        <div class="content">
+                                                            {!! $berita[0]->kontent !!}
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                            <div class="card container py-3 mb-3"
-                                                style="border-radius: 5px; background-color: #F1F1F1">
-                                                <img class="rounded-circle" src="/img/batmanlogo.jpg"
-                                                    style="width: 40px; height: 40px" alt="user">
-                                                <h4><a href="" title="More Details">Dina Indayati</a></h4>
-                                                <small>2 jam yang lalu</small>
-                                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                            </div>
+                                                @foreach ($berita->skip(1) as $ber)
+                                                    <div class="card container py-3 mb-3"
+                                                        style="border-radius: 5px; background-color: #F1F1F1">
+                                                        <div class="row">
+                                                            <div class="col-lg-2 d-flex align-items-center">
+                                                                <a href="/detailberita/{{ $ber->slug }}">
+                                                                    <img class=""
+                                                                        src="{{ asset('storage/' . $ber->gambar) }}"
+                                                                        style="width: 120px; height: 80px" alt="donatur">
+                                                                </a>
+                                                            </div>
+                                                            <div class="col-lg-10">
+                                                                <a href="/detailberita/{{ $ber->slug }}"
+                                                                    style="color: black">
+                                                                    <h4>
+                                                                        {{ $ber->judul }}
+                                                                    </h4>
+                                                                </a>
+                                                                <p>
+                                                                    <i class="bi bi-quote quote-icon-left"
+                                                                        style="color: #008374"></i>
+                                                                    {!! $ber->excerpt !!}
+                                                                    <i class="bi bi-quote quote-icon-right"
+                                                                        style="color: #008374"></i>
+                                                                </p>
+                                                                <small>
+                                                                    {{ \Carbon\Carbon::parse($ber->created_at)->diffForHumans() }}
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @endif
+
                                         </div>
                                     </div>
 
@@ -120,32 +142,51 @@
                                             style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">
                                             Kiriman Doa</h1>
                                         <div class="portfolio-info">
-                                            <div class="card container py-3 mb-3"
-                                                style="border-radius: 5px; background-color: #F1F1F1">
-                                                <img class="rounded-circle" src="/img/batmanlogo.jpg"
-                                                    style="width: 40px; height: 40px" alt="user">
-                                                <h4><a href="" title="More Details">Dina Indayati</a></h4>
-                                                <small>2 jam yang lalu</small>
-                                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                            </div>
-
-                                            <div class="card container py-3 mb-3"
-                                                style="border-radius: 5px; background-color: #F1F1F1">
-                                                <img class="rounded-circle" src="/img/batmanlogo.jpg"
-                                                    style="width: 40px; height: 40px" alt="user">
-                                                <h4><a href="" title="More Details">Dina Indayati</a></h4>
-                                                <small>2 jam yang lalu</small>
-                                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                            </div>
-
-                                            <div class="card container py-3 mb-3"
-                                                style="border-radius: 5px; background-color: #F1F1F1">
-                                                <img class="rounded-circle" src="/img/batmanlogo.jpg"
-                                                    style="width: 40px; height: 40px" alt="user">
-                                                <h4><a href="" title="More Details">Dina Indayati</a></h4>
-                                                <small>2 jam yang lalu</small>
-                                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                            </div>
+                                            @if ($donatur2->count() == 0)
+                                                <h4>Belum ada donatur pada program ini</h4>
+                                            @else
+                                                @foreach ($donatur2 as $don)
+                                                    <div class="card container py-3 mb-3"
+                                                        style="border-radius: 5px; background-color: #F1F1F1">
+                                                        <div class="row">
+                                                            <div class="col-lg-2">
+                                                                @if ($don->anonim)
+                                                                    <img class="rounded-circle"
+                                                                        src="https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/no-profile-picture-icon.png"
+                                                                        style="width: 80px; height: 80px" alt="donatur">
+                                                                @else
+                                                                    @if ($don->user->gambar)
+                                                                        <img class="rounded-circle"
+                                                                            src="{{ asset('storage/' . $don->user->gambar) }}"
+                                                                            style="width: 80px; height: 80px"
+                                                                            alt="donatur">
+                                                                    @else
+                                                                        <img class="rounded-circle"
+                                                                            src="https://cdn-icons-png.flaticon.com/512/21/21104.png"
+                                                                            style="width: 80px; height: 80px"
+                                                                            alt="donatur">
+                                                                    @endif
+                                                                @endif
+                                                            </div>
+                                                            <div class="col-lg-10">
+                                                                <h4>
+                                                                    {{ $don->user->name }}
+                                                                </h4>
+                                                                <p>
+                                                                    <i class="bi bi-quote quote-icon-left"
+                                                                        style="color: #008374"></i>
+                                                                    {{ $don->doa }}
+                                                                    <i class="bi bi-quote quote-icon-right"
+                                                                        style="color: #008374"></i>
+                                                                </p>
+                                                                <small>
+                                                                    {{ \Carbon\Carbon::parse($don->paidTime)->diffForHumans() }}
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -177,32 +218,50 @@
                                             style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">
                                             Donatur</h1>
                                         <div class="portfolio-info">
-                                            <div class="card container py-3 mb-3"
-                                                style="border-radius: 5px; background-color: #F1F1F1">
-                                                <img class="rounded-circle" src="/img/batmanlogo.jpg"
-                                                    style="width: 40px; height: 40px" alt="user">
-                                                <h4><a href="" title="More Details">Dina Indayati</a></h4>
-                                                <small>2 jam yang lalu</small>
-                                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                            </div>
-
-                                            <div class="card container py-3 mb-3"
-                                                style="border-radius: 5px; background-color: #F1F1F1">
-                                                <img class="rounded-circle" src="/img/batmanlogo.jpg"
-                                                    style="width: 40px; height: 40px" alt="user">
-                                                <h4><a href="" title="More Details">Dina Indayati</a></h4>
-                                                <small>2 jam yang lalu</small>
-                                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                            </div>
-
-                                            <div class="card container py-3 mb-3"
-                                                style="border-radius: 5px; background-color: #F1F1F1">
-                                                <img class="rounded-circle" src="/img/batmanlogo.jpg"
-                                                    style="width: 40px; height: 40px" alt="user">
-                                                <h4><a href="" title="More Details">Dina Indayati</a></h4>
-                                                <small>2 jam yang lalu</small>
-                                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                            </div>
+                                            @if ($donatur2->count() == 0)
+                                                <h4>Belum ada donatur pada program ini</h4>
+                                            @else
+                                                @foreach ($donatur as $don)
+                                                    <div class="card container py-3 mb-3"
+                                                        style="border-radius: 5px; background-color: #F1F1F1">
+                                                        <div class="row">
+                                                            <div class="col-lg-2">
+                                                                @if ($don->anonim)
+                                                                    <img class="rounded-circle"
+                                                                        src="https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/no-profile-picture-icon.png"
+                                                                        style="width: 80px; height: 80px" alt="donatur">
+                                                                @else
+                                                                    @if ($don->user->gambar)
+                                                                        <img class="rounded-circle"
+                                                                            src="{{ asset('storage/' . $don->user->gambar) }}"
+                                                                            style="width: 80px; height: 80px"
+                                                                            alt="donatur">
+                                                                    @else
+                                                                        <img class="rounded-circle"
+                                                                            src="https://cdn-icons-png.flaticon.com/512/21/21104.png"
+                                                                            style="width: 80px; height: 80px"
+                                                                            alt="donatur">
+                                                                    @endif
+                                                                @endif
+                                                            </div>
+                                                            <div class="col-lg-10">
+                                                                <h4>
+                                                                    {{ $don->user->name }}
+                                                                </h4>
+                                                                <span class="mb-3"
+                                                                    style="font-weight: 400; font-family: sans-serif">
+                                                                    Rp
+                                                                    {{ number_format($don->nominal, 2, ',', '.') }}
+                                                                </span>
+                                                                <br>
+                                                                <small>
+                                                                    {{ \Carbon\Carbon::parse($don->paidTime)->diffForHumans() }}
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -225,10 +284,22 @@
                         @endif
                         <div class="portfolio-info">
                             <div class="row">
-                                <div class="col-lg-10">
-                                    <h3>Informasi Program</h3>
-                                </div>
+                                @if ($program->status != 1)
+                                    <div class="col-lg-10">
+                                    @else
+                                        <div class="col-lg-9">
+                                @endif
+                                <h3>Informasi Program</h3>
+                            </div>
+                            @if (auth()->check())
                                 <div class="col-lg-2">
+                                    @if (auth()->user()->id == $program->user->id && $program->status != 4)
+                                        <a type="button" href="/createblog/{{ $program->slug }}" class="btn"
+                                            style="background-color: #61d43a" title="Buat Berita Program"><i
+                                                class="bi bi-file-richtext"></i></a>
+                                    @endif
+                                </div>
+                                <div class="col-lg-1">
                                     @if (auth()->user()->id == $program->user->id && $program->status == 1)
                                         <button type="button" class="btn" style="background-color: #e69d30"
                                             data-bs-toggle="modal" data-bs-target="#exampleModal" title="Edit Program"><i
@@ -243,9 +314,8 @@
                                                 <div class="modal-header" style="background-color: black">
                                                     <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">
                                                         Update Data Program Donasi</h1>
-                                                    <button type="button" class="btn-close"
-                                                        style="background-color: white" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
+                                                    <button type="button" class="btn-close" style="background-color: white"
+                                                        data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body d-flex align-items-center"
                                                     style="height: max-content;">
@@ -253,8 +323,7 @@
                                                         enctype="multipart/form-data">
                                                         @csrf
                                                         <span>Masukkan field yang ingin diupdate!</span>
-                                                        <input type="hidden" name="id"
-                                                            value="{{ $program->id }}">
+                                                        <input type="hidden" name="id" value="{{ $program->id }}">
 
                                                         <div class="form-row mt-4">
                                                             <div class="name">Nama Program</div>
@@ -281,8 +350,7 @@
                                                                     <input
                                                                         class="input--style-5 @error('targetdana') is-invalid @enderror"
                                                                         name="targetdana" type="text"
-                                                                        placeholder="ex: Rp1.000.000,00"
-                                                                        id="txtExampleBoxOne"
+                                                                        placeholder="ex: Rp1.000.000,00" id="txtExampleBoxOne"
                                                                         onkeypress="return number(event )"
                                                                         onBlur="formatCurrency(this, 'Rp ', 'blur');"
                                                                         onkeyup="formatCurrency(this, 'Rp ');"
@@ -323,8 +391,7 @@
                                                                     <input
                                                                         class="input--style-5 @error('deskripsi') is-invalid @enderror"
                                                                         type="text" name="deskripsi" id="deskripsi"
-                                                                        placeholder="ex: Lorem ipsum dolor sit amet."
-                                                                        required
+                                                                        placeholder="ex: Lorem ipsum dolor sit amet." required
                                                                         value="{{ old('deskripsi', $program->deskripsi) }}">
                                                                 </div>
                                                                 @error('deskripsi')
@@ -367,119 +434,180 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <ul>
-                                <li>
-                                    <h2>Rp {{ number_format($program->danaskrg, 2, ',', '.') }}</h2>
-                                </li>
-                                <li>
-                                    <div class="progress" role="progressbar" aria-label="Example 100px high"
-                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 5px">
-                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-                                            title="Rp{{ $program->danaskrg }}"
-                                            style="width: {{ ($program->danaskrg / $program->targetdana) * 100 }}%"></div>
-                                    </div>
-                                    <div class="count d-flex justify-content-between">
-                                        <div class="col">
-                                            <small>{{ $donatur->count() }} donatur</small>
-                                        </div>
-                                        <div class="col text-end">
-                                            <small>{{ \Carbon\Carbon::parse($program->deadline)->diffForHumans() }}</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li><strong>Kategori Program</strong> <span>{{ $program->kategori->nama }}</span></li>
-                                <li><strong>Pembuat Donasi</strong> <span>{{ $program->user->name }}</span></li>
-                                <li><strong>Batas Akhir Donasi</strong>
-                                    <span>{{ \Carbon\Carbon::parse($program->deadline)->translatedFormat('l, d F Y') }}</span>
-                                </li>
-                                <li><strong>Target Donasi</strong>Rp {{ number_format($program->targetdana, 2, ',', '.') }}
-                                </li>
-
-                                @if ($program->status == 2)
-                                    <li><a href="/donasi/{{ $program->slug }}"
-                                            class="btn btn-light btn-lg align-self-start"
-                                            style="background-color: #008374; color: white; padding: 12px 31px 12px 31px; font-family: sans-serif; text-transform: none">Donasi
-                                            Sekarang</a></li>
-                                @else
-                                    @if ($program->status == 1)
-                                        <li><span class="badge"
-                                                style="background-color: #df840c; color: white; padding: 12px 31px 12px 31px; font-family: sans-serif; text-transform: none">Menunggu
-                                                Verifikasi Admin</span></li>
-                                    @elseif ($program->status == 3)
-                                        <li><span class="badge"
-                                                style="background-color: #df840c; color: white; padding: 12px 31px 12px 31px; font-family: sans-serif; text-transform: none">Program
-                                                di Non-Aktifkan</span></li>
-                                    @elseif ($program->status == 4)
-                                        <li><span class="badge"
-                                                style="background-color: #df840c; color: white; padding: 12px 31px 12px 31px; font-family: sans-serif; text-transform: none">Program
-                                                di Batalkan</span></li>
-                                    @else
-                                    <li><span class="badge"
-                                        style="background-color: #df840c; color: white; padding: 12px 31px 12px 31px; font-family: sans-serif; text-transform: none">Program
-                                        Selesai</span></li>
-                                    @endif
-                                @endif
-
-                                @if ($program->status == 2 || $program->status == 5)
-                                    <li><a href="#" class="btn btn-light btn-lg align-self-start"
-                                            style="background-color: #008374; color: white; padding: 12px 51px 12px 51px; font-family: sans-serif"><i
-                                                class="bi bi-share-fill"></i> Bagikan</a></li>
-                                @endif
-
-                                <li class="mt-4">
-                                    <h2 style="font-weight: 700">5 Donatur Terbesar</h2>
-                                </li>
-                                <li>
-                                    <div class="row mb-2">
-                                        <div class="col-3">
-                                            <img class="rounded-circle" src="/img/batmanlogo.jpg"
-                                                style="width: 40px; height: 40px" alt="donatur">
-                                        </div>
-                                        <div class="col-9">
-                                            <h5>Anonim</h5>
-                                            <small style="font-weight: 700">Rp10.000.000</small>
-                                            <small class="ms-4">2 jam</small>
-                                        </div>
-                                    </div>
-                                    <hr style="border: 2px solid black;">
-                                </li>
-
-                                <li>
-                                    <div class="row mb-2">
-                                        <div class="col-3">
-                                            <img class="rounded-circle" src="/img/batmanlogo.jpg"
-                                                style="width: 40px; height: 40px" alt="donatur">
-                                        </div>
-                                        <div class="col-9">
-                                            <h5>Anonim</h5>
-                                            <small style="font-weight: 700">Rp10.000.000</small>
-                                            <small class="ms-4">2 jam</small>
-                                        </div>
-                                    </div>
-                                    <hr style="border: 2px solid black;">
-                                </li>
-
-                                <li>
-                                    <div class="row mb-2">
-                                        <div class="col-3">
-                                            <img class="rounded-circle" src="/img/batmanlogo.jpg"
-                                                style="width: 40px; height: 40px" alt="donatur">
-                                        </div>
-                                        <div class="col-9">
-                                            <h5>Anonim</h5>
-                                            <small style="font-weight: 700">Rp10.000.000</small>
-                                            <small class="ms-4">2 jam</small>
-                                        </div>
-                                    </div>
-                                    <hr style="border: 2px solid black;">
-                                </li>
-
-                            </ul>
+                            @endif
                         </div>
-                    </div>
+                        <ul>
+                            <li>
+                                <h2>Rp {{ number_format($program->danaskrg, 2, ',', '.') }}</h2>
+                            </li>
+                            <li>
+                                <div class="progress" role="progressbar" aria-label="Example 100px high"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 5px">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                                        title="Rp{{ $program->danaskrg }}"
+                                        style="width: {{ ($program->danaskrg / $program->targetdana) * 100 }}%"></div>
+                                </div>
+                                <div class="count d-flex justify-content-between">
+                                    <div class="col">
+                                        <small>{{ $donatur->count() }} donatur</small>
+                                    </div>
+                                    <div class="col text-end">
+                                        <small>{{ \Carbon\Carbon::parse($program->deadline)->diffForHumans() }}</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><strong>Kategori Program</strong> <span>{{ $program->kategori->nama }}</span></li>
+                            <li><strong>Pembuat Donasi</strong> <span>{{ $program->user->name }}</span></li>
+                            <li><strong>Batas Akhir Donasi</strong>
+                                <span>{{ \Carbon\Carbon::parse($program->deadline)->translatedFormat('l, d F Y') }}</span>
+                            </li>
+                            <li><strong>Target Donasi</strong>Rp {{ number_format($program->targetdana, 2, ',', '.') }}
+                            </li>
 
+                            @if ($program->status == 2)
+                                <li><a href="/donasi/{{ $program->slug }}" class="btn btn-light btn-lg align-self-start"
+                                        style="background-color: #008374; color: white; padding: 12px 31px 12px 31px; font-family: sans-serif; text-transform: none">Donasi
+                                        Sekarang</a></li>
+                            @else
+                                @if ($program->status == 1)
+                                    <li><span class="badge"
+                                            style="background-color: #df840c; color: white; padding: 12px 31px 12px 31px; font-family: sans-serif; text-transform: none">Menunggu
+                                            Verifikasi Admin</span></li>
+                                @elseif ($program->status == 3)
+                                    <li><span class="badge"
+                                            style="background-color: #df840c; color: white; padding: 12px 31px 12px 31px; font-family: sans-serif; text-transform: none">Program
+                                            di Non-Aktifkan</span></li>
+                                @elseif ($program->status == 4)
+                                    <li><span class="badge"
+                                            style="background-color: #df840c; color: white; padding: 12px 31px 12px 31px; font-family: sans-serif; text-transform: none">Program
+                                            di Batalkan</span></li>
+                                @else
+                                    <li><span class="badge"
+                                            style="background-color: #df840c; color: white; padding: 12px 31px 12px 31px; font-family: sans-serif; text-transform: none">Program
+                                            Selesai</span></li>
+                                @endif
+                            @endif
+
+                            @if ($program->status == 2 || $program->status == 5)
+                                <li>
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                                        class="btn btn-light btn-lg align-self-start"
+                                        style="background-color: #008374; color: white; padding: 12px 51px 12px 51px; font-family: sans-serif"><i
+                                            class="bi bi-share-fill"></i> Bagikan
+                                    </button>
+                                    <div class="modal fade" id="exampleModal1" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content"
+                                                style="-moz-border-radius: 10px; border-radius: 10px; -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15); -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15); box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15); width: 1100px">
+                                                <div class="modal-header" style="background-color: black">
+                                                    <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">
+                                                        Bagikan Program Donasi ini</h1>
+                                                    <button type="button" class="btn-close"
+                                                        style="background-color: white" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body d-flex align-items-center mb-3"
+                                                    style="height: 130px; width: 475px">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <span style="font-weight: 800">Salin link URL dibawah
+                                                                ini!</span>
+                                                        </div>
+                                                        <div class="col-11">
+                                                            <input type="text" style="width: 100%"
+                                                                class="input--style-5"
+                                                                value="http://127.0.0.1:8000/detailprogram/{{ $program->slug }}"
+                                                                id="copyText" readonly>
+                                                        </div>
+                                                        <div class="col-1">
+                                                            <button class="btn" id="copyBtn"><i
+                                                                    class="bi bi-files fs-2"
+                                                                    style="display: flex; align-items: center; justify-content: center; margin-left: -15px"></i></button>
+                                                        </div>
+                                                    </div>
+
+                                                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+                                                    <script>
+                                                        const copyBtn = document.getElementById('copyBtn')
+                                                        const copyText = document.getElementById('copyText')
+
+                                                        copyBtn.onclick = () => {
+                                                            copyText.select(); // Selects the text inside the input
+                                                            document.execCommand('copy'); // Simply copies the selected text to clipboard
+                                                            Swal.fire({ //displays a pop up with sweetalert
+                                                                icon: 'success',
+                                                                title: 'Link URL berhasil disalin',
+                                                                showConfirmButton: false,
+                                                                timer: 1000
+                                                            });
+                                                        }
+                                                    </script>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endif
+
+                            <li class="mt-4">
+                                <h2 style="font-weight: 700">5 Donatur Terbesar</h2>
+                            </li>
+
+                            @if ($donatur->count() == 0)
+                                <li>
+                                    <span style="font-size: 14px; font-weight: 600">
+                                        <i class="bi bi-quote quote-icon-left" style="color: #008374"></i>
+                                        Belum ada donatur pada program ini
+                                        <i class="bi bi-quote quote-icon-right" style="color: #008374"></i>
+                                    </span>
+                                </li>
+                            @else
+                                @foreach ($donatur as $don)
+                                    <li>
+                                        <div class="row mb-2">
+                                            <div class="col-3">
+                                                @if ($don->anonim)
+                                                    <img class="rounded-circle"
+                                                        src="https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/no-profile-picture-icon.png"
+                                                        style="width: 40px; height: 40px" alt="donatur">
+                                                @else
+                                                    @if ($don->user->gambar)
+                                                        <img class="rounded-circle"
+                                                            src="{{ asset('storage/' . $don->user->gambar) }}"
+                                                            style="width: 40px; height: 40px" alt="donatur">
+                                                    @else
+                                                        <img class="rounded-circle"
+                                                            src="https://cdn-icons-png.flaticon.com/512/21/21104.png"
+                                                            style="width: 40px; height: 40px" alt="donatur">
+                                                    @endif
+                                                @endif
+                                            </div>
+                                            <div class="col-9">
+                                                <h5>
+                                                    @if ($don->anonim)
+                                                        {{ $don->anonim }}
+                                                    @else
+                                                        {{ $don->user->name }}
+                                                    @endif
+                                                </h5>
+                                                <small style="font-weight: 700">Rp
+                                                    {{ number_format($don->nominal, 2, ',', '.') }}</small>
+                                                <small
+                                                    class="ms-4">{{ \Carbon\Carbon::parse($don->paidTime)->diffForHumans() }}</small>
+                                            </div>
+                                        </div>
+                                        <hr style="border: 2px solid black;">
+                                    </li>
+                                @endforeach
+                            @endif
+
+                        </ul>
+                    </div>
                 </div>
+
+            </div>
 
             </div>
         </section>

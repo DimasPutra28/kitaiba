@@ -49,7 +49,7 @@
                                 <div class="name">Nama Program</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <input class="input--style-5 @error('nama') is-invalid @enderror" id="nama" name="nama"  type="text" placeholder="ex: Tanah hongsor" required value="{{ old('nama') }}">
+                                        <input class="input--style-5 @error('nama') is-invalid @enderror" id="nama" name="nama"  type="text" placeholder="ex: Tanah hongsor" autofocus required value="{{ old('nama') }}">
                                     </div>
                                     @error('nama')
                                         <div class="invalid-feedback">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\KategoriProgam;
 use App\Models\Program;
 use Illuminate\Support\Facades\Storage;
@@ -24,7 +25,7 @@ class ProgramController extends Controller
     public function indexcreate(){
         return view('admin.program.createprogram', [
             "title" => "Dashboard | BuatProgram",
-            "kategori" => KategoriProgam::all()
+            "kategori" => KategoriProgam::where('status', 1)->get()
         ]);
     }
 
@@ -72,7 +73,8 @@ class ProgramController extends Controller
         $program = Program::where("slug", $slug)->first();
         return view('admin.program.detailpending', [
             "title" => "Dashboard | Pending Program $program->nama",
-            "program" => $program
+            "program" => $program,
+            "berita" => Blog::where('id_program', $program->id)->get()
         ]);
     }
 

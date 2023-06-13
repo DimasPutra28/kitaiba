@@ -55,7 +55,7 @@
                             <div class="card-body">
                                 <div class="row d-flex justify-content-center">
                                     <div class="col-6">
-                                        <img class="img-fluid" src="{{ asset('storage/'.$program->gambar) }}" alt="">
+                                        <img class="img-fluid" src="{{ asset('storage/'.$program->gambar) }}" style="height: 100px; width: 250px" alt="">
                                     </div>
                                     <div class="col-6">
                                         <span>Kamu mendukung program</span>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donasi;
+use App\Models\KategoriProgam;
 use App\Models\Program;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
@@ -14,10 +15,7 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $program = DB::table('donasis')
-            ->groupBy('id_program')
-            ->select('id_program', DB::raw('COUNT(*) as total_users'))
-            ->get();
+        $program = Donasi::where('id_user', auth()->user()->id)->where('status', 2)->groupBy('id_program')->get(['id_program']);
         return view('profile.index', [
             "title" => "Profil Donatur",
             "donasi" => Donasi::where('id_user', auth()->user()->id)->get(),
@@ -28,10 +26,7 @@ class ProfileController extends Controller
 
     public function editprofile()
     {
-        $program = DB::table('donasis')
-            ->groupBy('id_program')
-            ->select('id_program', DB::raw('COUNT(*) as total_users'))
-            ->get();
+        $program = Donasi::where('id_user', auth()->user()->id)->where('status', 2)->groupBy('id_program')->get(['id_program']);
         return view('profile.editprofile', [
             "title" => "Edit Profil Donatur",
             "donasi" => Donasi::where('id_user', auth()->user()->id)->get(),
@@ -76,10 +71,7 @@ class ProfileController extends Controller
     }
 
     public function transaksi(){
-        $program = DB::table('donasis')
-            ->groupBy('id_program')
-            ->select('id_program', DB::raw('COUNT(*) as total_users'))
-            ->get();
+        $program = Donasi::where('id_user', auth()->user()->id)->where('status', 2)->groupBy('id_program')->get(['id_program']);
         return view('profile.transaksisaya', [
             "title" => "Riwayat Transaksi Saya",
             "donasi" => Donasi::where('id_user', auth()->user()->id)->latest()->get(),
@@ -90,15 +82,24 @@ class ProfileController extends Controller
     }
 
     public function penggalangan(){
-        $program = DB::table('donasis')
-            ->groupBy('id_program')
-            ->select('id_program', DB::raw('COUNT(*) as total_users'))
-            ->get();
+        $program = Donasi::where('id_user', auth()->user()->id)->where('status', 2)->groupBy('id_program')->get(['id_program']);
         return view('profile.programyangdibuat', [
             "title" => "Penggalangan Dana Saya",
             "donasi" => Donasi::where('id_user', auth()->user()->id)->latest()->get(),
             "program" => $program,
             "myprogram" => Program::where('id_user', auth()->user()->id)->latest()->get()
+        ]);
+    }
+
+    public function diikuti(){
+        $program = Donasi::where('id_user', auth()->user()->id)->where('status', 2)->groupBy('id_program')->get(['id_program']);
+        // dd($program);
+        return view('profile.programdiikuti', [
+            "title" => "Program Yang Diikuti",
+            "donasi" => Donasi::where('id_user', auth()->user()->id)->latest()->get(),
+            "myp" => Program::where('id_user', auth()->user()->id)->latest()->get(),
+            "program" => $program,
+            "kategori" => KategoriProgam::where('status', 1)->get()
         ]);
     }
 }

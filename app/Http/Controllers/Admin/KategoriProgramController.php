@@ -14,7 +14,7 @@ class KategoriProgramController extends Controller
     public function index(){
         return view('admin.kategori.index', [
             "title" => "Dashboard | Kategori Program",
-            "kategori" => KategoriProgam::all()
+            "kategori" => KategoriProgam::paginate(10)
         ]);
     }
 
@@ -62,15 +62,12 @@ class KategoriProgramController extends Controller
         return redirect()->route('updatekategori', ['slug' => $new[0]->slug])->with('success', "Kategori program berhasil diupdate");
     }
 
-    public function destroy(){
+    public function nonaktif(){
         $id=request('id');
-        $swap = KategoriProgam::where('id', $id)->first();
-        KategoriProgam::destroy($id);
-        $program = Program::where('id_kategori', $id)->get();
-        foreach($program as $prog){
-            Program::destroy($prog->id);
-        }
-        return redirect()->back()->with('success', "Kategori program: $swap->nama berhasil dihapus");
+        $kategori = KategoriProgam::where('id', $id)->first();
+        $validatedData['status'] = 2;
+        $kategori->update($validatedData);
+        return back()->with('success', "Kategori program: $kategori->nama berhasil dinonaktifkan");
     }
 
     public function listprogram($slug){

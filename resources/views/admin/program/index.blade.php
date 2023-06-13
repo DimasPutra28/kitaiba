@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <table class="table text-center">
+                        <table class="table">
 
                             <thead>
                                 <tr>

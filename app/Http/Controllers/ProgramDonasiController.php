@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Donasi;
 use Illuminate\Http\Request;
 use App\Models\KategoriProgam;
@@ -45,16 +46,12 @@ class ProgramDonasiController extends Controller
 
     public function detailprogram($slug){
         $program = Program::where('slug', $slug)->first();
-        // $donasi = Donasi::where('status', 2)->get();
-        $donatur= DB::table('donasis')
-            ->select('id_program')
-            ->where('id_program', $program->id)
-            ->where('status', 2)
-            ->get();
         return view('dashboard.detailprogram', [
-            "title" => "Program $program->nama",
+            "title" => "Program ".ucwords($program->nama),
             "program" => $program,
-            "donatur" => $donatur
+            "donatur" => Donasi::where('id_program', $program->id)->where('status', 2)->orderByDesc('nominal')->paginate(5),
+            "donatur2" => Donasi::where('id_program', $program->id)->where('status', 2)->get(),
+            "berita" => Blog::where('id_program', $program->id)->get()
         ]);
     }
 
@@ -82,5 +79,16 @@ class ProgramDonasiController extends Controller
 
         $program->update($validatedData);
         return back()->with('update', 'Program donasi berhasil di update');
+    }
+
+    public function all(){
+        return view('dashboard.allprogram', [
+            "title" => "Program Donasi Bantu Mereka",
+            "program" => Program::where('status', 2)
+            ->where('nama', 'like', '%' . request('search') . '%')
+            ->get(),
+            "kategori" => KategoriProgam::where('status', 1)->get(),
+            "search" => request('search')
+        ]);
     }
 }

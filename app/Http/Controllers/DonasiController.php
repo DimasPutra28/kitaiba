@@ -100,7 +100,7 @@ class DonasiController extends Controller
         $hashed = hash("sha512", $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
         if($hashed == $request->signature_key){
             if($request->transaction_status == 'capture' || $request->transaction_status == 'settlement'){
-                $donasi = Donasi::find($request->order_id);
+                $donasi = Donasi::where('id', $request->order_id)->first();
                 $donasi->update([
                     'status' => 2,
                     'paidTime' => Carbon::now()
@@ -134,5 +134,14 @@ class DonasiController extends Controller
         $donasi->update($update);
 
         return redirect('/transaksisaya');
+    }
+
+    ///////admin///////
+
+    public function admindex(){
+        return view('admin.donasi.index', [
+            "title" => "Dashboard | Donasi",
+            "donasi" => Donasi::paginate(10)
+        ]);
     }
 }

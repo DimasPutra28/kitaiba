@@ -5,6 +5,9 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Donasi;
 use App\Models\Program;
+use App\Models\Blog;
+use App\Models\Komentar;
+use App\Models\Rating;
 use App\Models\KategoriProgram;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -33,6 +36,18 @@ class User extends Authenticatable
 
     public function donasi(){
         return $this->hasMany(Donasi::class, 'id_user');
+    }
+
+    public function berita(){
+        return $this->hasMany(Blog::class, 'id_user');
+    }
+
+    public function komentar(){
+        return $this->hasMany(Komentar::class, 'id_user');
+    }
+
+    public function rating(){
+        return $this->hasMany(Rating::class, 'id_user');
     }
 
     /**
