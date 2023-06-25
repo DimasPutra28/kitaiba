@@ -40,9 +40,7 @@
                             </div>
                         </div>
                         <p class="w-100 text-center">&mdash; atau masuk dengan &mdash;</p>
-                        <div class="social d-flex text-center">
-                            <a href="auth/google" class="px-2 py-2 mr-md-1 rounded" style="background-color: white; font-family: 'Trebuchet MS'; font-weight: 600"><span class="bi bi-google" style="color: #DB4639">+</span> Masuk dengan Google</a>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

@@ -93,7 +93,36 @@
                                                 @if ($us->roleid == 1)
                                                     <div class="badge badge-outline-info" style="padding-left: 24px; padding-right: 24px">Admin</div>
                                                 @else
-                                                    <div class="badge badge-outline-success" style="padding-left: 24px; padding-right: 24px">User</div>
+                                                    <button class="btn btn-outline-success" data-bs-toggle="modal"
+                                                    data-bs-target="#{{ $us->id }}" style="padding-left: 24px; padding-right: 24px">User</button>
+
+                                                    <div class="modal fade" id="{{ $us->id }}" tabindex="-1"
+                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                            <div class="modal-content"
+                                                                style="background-color: #2A3038; color:white; border-radius: 1rem; width: 1150px;">
+                                                                <div class="modal-header">
+                                                                    <h1 class="modal-title fs-1" id="exampleModalLabel">User:
+                                                                        {{ $us->name }}</h1>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    Apakah anda yakin untuk menjandikan user ini menjadi admin?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light"
+                                                                        data-bs-dismiss="modal"
+                                                                        style="margin-right: 5px; border-radius: 5px; background-color: rgb(13, 105, 30); color: white; padding: 12px 27px 12px 27px">Tidak</button>
+                                                                    <form action="/dash-isAdmin" method="POST">
+                                                                        @csrf
+                                                                        <input type="hidden" name="id"
+                                                                            value="{{ $us->id }}">
+                                                                        <button type="submit" class="btn btn-light"
+                                                                            style="margin-right: 5px; border-radius: 5px; background-color: rgb(125, 26, 19); color: white; padding: 12px 27px 12px 27px">Iya</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 @endif
                                             </td>
                                         </tr>

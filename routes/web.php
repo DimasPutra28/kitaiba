@@ -92,6 +92,7 @@ Route::get('/cek', function(){
 //////////////////////////////ADMIN///////////////////////////////////////
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('admin');
 Route::get('/dash-user', [DashboardController::class, 'user'])->middleware('admin');
+Route::post('/dash-isAdmin', [DashboardController::class, 'isAdmin'])->middleware('admin');
 
 Route::get('/dash-kategoriprogram', [KategoriProgramController::class, 'index'])->middleware('admin');
 Route::get('/dash-buatkategori', [KategoriProgramController::class, 'indexcreate'])->middleware('admin');

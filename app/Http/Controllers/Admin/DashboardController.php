@@ -29,4 +29,11 @@ class DashboardController extends Controller
             "user" => User::paginate(10)
         ]);
     }
+
+    public function isAdmin(){
+        $user = User::where('id', request("id"))->first();
+        $update["roleid"] = 1;
+        $user->update($update);
+        return back()->with('succeess', "User $user->name berhasil menjadi admin");
+    }
 }
