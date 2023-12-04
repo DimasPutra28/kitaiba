@@ -83,7 +83,6 @@
                                                 style="margin-right: 5px; border-radius: 5px; background-color: rgb(125, 26, 19); color: white; padding: 12px 27px 12px 27px">Non
                                                 Aktif</button>
 
-                                            {{-- Modal button hapus --}}
                                             <div class="modal fade" id="{{ $kat->id }}" tabindex="-1"
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
@@ -111,7 +110,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            {{-- End Modal button hapus --}}
 
                                         </div>
                                     @else
@@ -136,12 +134,12 @@
                         </table>
                         @endif
                         <br>
-                        <div class="erga d-flex justify-content-center">
-                            {{ $kategori->links() }}
-                        </div>
-                        <div>
-                        </div>
-                    </div>
+                <div class="erga d-flex justify-content-center">
+                    {{ $kategori->links() }}
+                </div>
+                <div>
                 </div>
             </div>
-        @endsection
+        </div>
+    </div>
+@endsection

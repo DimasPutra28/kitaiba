@@ -144,6 +144,4 @@ class ProgramController extends Controller
             "program" => Program::where('status', 5)->paginate(10)
         ]);
     }
-
-
 }

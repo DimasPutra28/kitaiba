@@ -911,15 +911,15 @@
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
     {{-- form --}}
-    <!-- Jquery JS-->
+    {{-- <!-- Jquery JS-->
     <script src="form/vendor/jquery/jquery.min.js"></script>
     <!-- Vendor JS-->
     <script src="form/vendor/select2/select2.min.js"></script>
     <script src="form/vendor/datepicker/moment.min.js"></script>
-    <script src="form/vendor/datepicker/daterangepicker.js"></script>
+    <script src="form/vendor/datepicker/daterangepicker.js"></script> --}}
 
     <!-- Main JS-->
-    <script src="form/js/global.js"></script>
+    {{-- <script src="form/js/global.js"></script> --}}
 
 </body>
 

@@ -548,7 +548,6 @@
 
         <section id="profile" class="profile">
             <div class="container bootstrap snippets bootdey">
-
                 @if (session()->has('success'))
                     <div class="row justify-content-center">
                         <div class="alert alert-success alert-dismissible text-center col-lg-11 fade show"

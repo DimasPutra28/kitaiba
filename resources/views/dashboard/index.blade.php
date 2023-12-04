@@ -108,7 +108,6 @@
                 <div class="portfolio-isotope" style="margin-top: 15px" data-portfolio-filter="*"
                     data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up"
                     data-aos-delay="100">
-
                     <div>
                         <ul class="portfolio-flters">
                             <li data-filter="*" class="filter-active">All</li>
@@ -117,7 +116,6 @@
                             @endforeach
                         </ul><!-- End Portfolio Filters -->
                     </div>
-
 
                     <div class="row gy-4 portfolio-container">
                         @foreach ($program as $prog)
@@ -152,7 +150,6 @@
                             </div>
                         @endforeach
                     </div>
-
                 </div>
             </div>
         </section>

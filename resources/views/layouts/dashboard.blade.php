@@ -115,8 +115,7 @@
 
                                 <li><a href="/profile" class="bi bi-person-fill" style="padding-right: 120px"> Profil</a>
                                 </li>
-                                <li><a href="/ubahpassword" class="bi bi-key-fill" style="padding-right: 45px">Ubah
-                                        Password</a></li>
+                                <li><a href="/ubahpassword" class="bi bi-key-fill" style="padding-right: 45px">Ubah Password</a></li>
                                 <li>
                                     <form action="/logout" method="post">
                                         @csrf

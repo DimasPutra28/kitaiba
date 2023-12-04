@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Blade;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -32,10 +31,6 @@ class AppServiceProvider extends ServiceProvider
 
         Gate::define('admin', function (User $user) {
             return $user->roleid === 1;
-        });
-
-        Blade::directive('money', function ($amount) {
-            return "<?php echo '$' . number_format($amount, 2); ?>";
         });
     }
 }
